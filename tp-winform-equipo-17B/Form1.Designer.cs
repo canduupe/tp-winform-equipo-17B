@@ -37,6 +37,7 @@
             this.statusStripFecha = new System.Windows.Forms.StatusStrip();
             this.lblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnListarArticulos = new System.Windows.Forms.Button();
             this.Menu1.SuspendLayout();
             this.statusStripFecha.SuspendLayout();
             this.SuspendLayout();
@@ -47,8 +48,8 @@
             this.artículosToolStripMenuItem});
             this.Menu1.Location = new System.Drawing.Point(0, 0);
             this.Menu1.Name = "Menu1";
-            this.Menu1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.Menu1.Size = new System.Drawing.Size(646, 24);
+            this.Menu1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.Menu1.Size = new System.Drawing.Size(861, 24);
             this.Menu1.TabIndex = 0;
             this.Menu1.Text = "menuStrip1";
             // 
@@ -84,11 +85,10 @@
             // 
             this.lblMenuPrincipal.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMenuPrincipal.AutoSize = true;
-            this.lblMenuPrincipal.BackColor = System.Drawing.Color.CadetBlue;
+            this.lblMenuPrincipal.BackColor = System.Drawing.Color.LightCyan;
             this.lblMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenuPrincipal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblMenuPrincipal.Location = new System.Drawing.Point(237, 40);
-            this.lblMenuPrincipal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMenuPrincipal.Location = new System.Drawing.Point(321, 47);
             this.lblMenuPrincipal.Name = "lblMenuPrincipal";
             this.lblMenuPrincipal.Size = new System.Drawing.Size(192, 31);
             this.lblMenuPrincipal.TabIndex = 1;
@@ -99,43 +99,59 @@
             this.statusStripFecha.BackColor = System.Drawing.Color.LightCyan;
             this.statusStripFecha.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblFecha});
-            this.statusStripFecha.Location = new System.Drawing.Point(0, 419);
+            this.statusStripFecha.Location = new System.Drawing.Point(0, 521);
             this.statusStripFecha.Name = "statusStripFecha";
-            this.statusStripFecha.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
-            this.statusStripFecha.Size = new System.Drawing.Size(646, 22);
+            this.statusStripFecha.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
+            this.statusStripFecha.Size = new System.Drawing.Size(861, 22);
             this.statusStripFecha.TabIndex = 2;
             this.statusStripFecha.Text = "statusStrip1";
             // 
             // lblFecha
             // 
+            this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(118, 17);
+            this.lblFecha.Size = new System.Drawing.Size(131, 17);
             this.lblFecha.Text = "toolStripStatusLabel1";
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBuscar.Location = new System.Drawing.Point(263, 109);
+            this.btnBuscar.Location = new System.Drawing.Point(327, 155);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(131, 23);
+            this.btnBuscar.Size = new System.Drawing.Size(181, 50);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar Artículo";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnListarArticulos
+            // 
+            this.btnListarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnListarArticulos.Location = new System.Drawing.Point(327, 265);
+            this.btnListarArticulos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListarArticulos.Name = "btnListarArticulos";
+            this.btnListarArticulos.Size = new System.Drawing.Size(181, 50);
+            this.btnListarArticulos.TabIndex = 4;
+            this.btnListarArticulos.Text = "Listar Artículo";
+            this.btnListarArticulos.UseVisualStyleBackColor = true;
+            this.btnListarArticulos.Click += new System.EventHandler(this.btnListarArticulos_Click);
+            // 
             // VentPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(646, 441);
+            this.ClientSize = new System.Drawing.Size(861, 543);
+            this.Controls.Add(this.btnListarArticulos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.statusStripFecha);
             this.Controls.Add(this.lblMenuPrincipal);
             this.Controls.Add(this.Menu1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(831, 686);
-            this.MinimumSize = new System.Drawing.Size(662, 480);
+            this.MaximumSize = new System.Drawing.Size(1103, 835);
+            this.MinimumSize = new System.Drawing.Size(877, 582);
             this.Name = "VentPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rough Magnament";
@@ -160,6 +176,7 @@
         private System.Windows.Forms.StatusStrip statusStripFecha;
         private System.Windows.Forms.ToolStripStatusLabel lblFecha;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnListarArticulos;
     }
 }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace tp_winform_equipo_17B
 {
-    internal class Articulo
+    public class Articulo
     {
         private int CodigoArticulo;
         private string Nombre;
