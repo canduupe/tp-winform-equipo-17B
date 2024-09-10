@@ -48,8 +48,8 @@
             this.artículosToolStripMenuItem});
             this.Menu1.Location = new System.Drawing.Point(0, 0);
             this.Menu1.Name = "Menu1";
-            this.Menu1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.Menu1.Size = new System.Drawing.Size(861, 24);
+            this.Menu1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.Menu1.Size = new System.Drawing.Size(646, 24);
             this.Menu1.TabIndex = 0;
             this.Menu1.Text = "menuStrip1";
             // 
@@ -66,19 +66,20 @@
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.agregarToolStripMenuItem.Text = "Agregar";
+            this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.modificarToolStripMenuItem.Text = "Modificar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // lblMenuPrincipal
@@ -88,7 +89,8 @@
             this.lblMenuPrincipal.BackColor = System.Drawing.Color.LightCyan;
             this.lblMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMenuPrincipal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblMenuPrincipal.Location = new System.Drawing.Point(321, 47);
+            this.lblMenuPrincipal.Location = new System.Drawing.Point(241, 38);
+            this.lblMenuPrincipal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMenuPrincipal.Name = "lblMenuPrincipal";
             this.lblMenuPrincipal.Size = new System.Drawing.Size(192, 31);
             this.lblMenuPrincipal.TabIndex = 1;
@@ -99,10 +101,10 @@
             this.statusStripFecha.BackColor = System.Drawing.Color.LightCyan;
             this.statusStripFecha.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblFecha});
-            this.statusStripFecha.Location = new System.Drawing.Point(0, 521);
+            this.statusStripFecha.Location = new System.Drawing.Point(0, 419);
             this.statusStripFecha.Name = "statusStripFecha";
-            this.statusStripFecha.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStripFecha.Size = new System.Drawing.Size(861, 22);
+            this.statusStripFecha.Padding = new System.Windows.Forms.Padding(1, 0, 10, 0);
+            this.statusStripFecha.Size = new System.Drawing.Size(646, 22);
             this.statusStripFecha.TabIndex = 2;
             this.statusStripFecha.Text = "statusStrip1";
             // 
@@ -116,10 +118,9 @@
             // btnBuscar
             // 
             this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBuscar.Location = new System.Drawing.Point(327, 155);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(245, 126);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(181, 50);
+            this.btnBuscar.Size = new System.Drawing.Size(136, 41);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar Artículo";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -128,10 +129,9 @@
             // btnListarArticulos
             // 
             this.btnListarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnListarArticulos.Location = new System.Drawing.Point(327, 265);
-            this.btnListarArticulos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnListarArticulos.Location = new System.Drawing.Point(245, 215);
             this.btnListarArticulos.Name = "btnListarArticulos";
-            this.btnListarArticulos.Size = new System.Drawing.Size(181, 50);
+            this.btnListarArticulos.Size = new System.Drawing.Size(136, 41);
             this.btnListarArticulos.TabIndex = 4;
             this.btnListarArticulos.Text = "Listar Artículo";
             this.btnListarArticulos.UseVisualStyleBackColor = true;
@@ -139,19 +139,18 @@
             // 
             // VentPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(861, 543);
+            this.ClientSize = new System.Drawing.Size(646, 441);
             this.Controls.Add(this.btnListarArticulos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.statusStripFecha);
             this.Controls.Add(this.lblMenuPrincipal);
             this.Controls.Add(this.Menu1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1103, 835);
-            this.MinimumSize = new System.Drawing.Size(877, 582);
+            this.MaximumSize = new System.Drawing.Size(831, 686);
+            this.MinimumSize = new System.Drawing.Size(662, 480);
             this.Name = "VentPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rough Magnament";

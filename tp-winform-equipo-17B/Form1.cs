@@ -37,6 +37,10 @@ namespace tp_winform_equipo_17B
 
         }
 
-     
+        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AgregarArticulo agregarArticulo = new AgregarArticulo();
+            agregarArticulo.ShowDialog();
+        }
     }
 }
