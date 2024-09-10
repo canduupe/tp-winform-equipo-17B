@@ -17,19 +17,15 @@ namespace tp_winform_equipo_17B
             InitializeComponent();
         }
 
-        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
         private void VentPrincipal_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
-        private void lblFecha_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            BuscarArticulo ventanaBuscar = new BuscarArticulo();
+            ventanaBuscar.ShowDialog();
         }
     }
 }
