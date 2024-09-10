@@ -16,5 +16,19 @@ namespace tp_winform_equipo_17B
         {
             InitializeComponent();
         }
+
+        private void Listar_Artículos_Load(object sender, EventArgs e)
+        {
+
+
+            Negocio negocio = new Negocio();
+
+
+            dgNegocio.AutoGenerateColumns = true;
+
+
+            dgNegocio.DataSource = negocio.listar();
+
+        }
     }
 }
