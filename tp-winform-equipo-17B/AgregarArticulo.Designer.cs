@@ -165,7 +165,7 @@ namespace tp_winform_equipo_17B
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 292);
+            this.ClientSize = new System.Drawing.Size(487, 331);
             this.Controls.Add(this.cbMarca);
             this.Controls.Add(this.cbIdMarca);
             this.Controls.Add(this.txtPrecio);
@@ -180,7 +180,11 @@ namespace tp_winform_equipo_17B
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(503, 370);
+            this.MinimumSize = new System.Drawing.Size(503, 370);
             this.Name = "AgregarArticulo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgregarArticulo";
             this.ResumeLayout(false);
             this.PerformLayout();

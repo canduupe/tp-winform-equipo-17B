@@ -9,14 +9,9 @@ namespace tp_winform_equipo_17B
 {
     public class Articulo
     {
-        private string CodigoArticulo;
-        private string Nombre;
-        private string Descripcion;
-        private float Precio;
-
         public string CodArticulo { get; set; }
         public string   NombreArticulo { get; set; }
         public string   DescripcionArticulo { get; set; }
-        public float   PrecioArticulo { get; set; }
+        public decimal  PrecioArticulo { get; set; }
     }
 }
