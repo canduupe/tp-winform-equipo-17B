@@ -15,5 +15,7 @@ namespace tp_winform_equipo_17B
         public decimal  PrecioArticulo { get; set; }
         public Marca Marca { get; set; }
         public Categoria Categoria { get; set; }
+        public int IdMarca { get; set; } 
+        public int IdCategoria { get; set; } 
     }
 }

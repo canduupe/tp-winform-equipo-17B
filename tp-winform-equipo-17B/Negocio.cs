@@ -53,6 +53,45 @@ namespace tp_winform_equipo_17B
                 conexion.Close();
             }
         }
+
+
+        public void agregar(Articulo art)
+        {
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+
+            
+            conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
+
+            
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
+                              "VALUES ('" + art.CodArticulo + "', '" + art.NombreArticulo + "', '" + art.DescripcionArticulo + "', " +
+                              art.IdMarca + ", " + art.IdCategoria + ", " + art.PrecioArticulo + ")";
+            comando.Connection = conexion;
+
+            
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();  
+            }
+            catch (Exception ex)
+            {
+                
+                throw ex;
+            }
+            finally
+            {
+                
+                conexion.Close();
+            }
+        }
+
+
+
+
+
     }
 }
 

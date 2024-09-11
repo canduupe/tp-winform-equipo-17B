@@ -41,8 +41,8 @@ namespace tp_winform_equipo_17B
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.cbIdMarca = new System.Windows.Forms.ComboBox();
             this.cbMarca = new System.Windows.Forms.ComboBox();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -86,18 +86,18 @@ namespace tp_winform_equipo_17B
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(99, 145);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "ID MARCA";
+            this.label5.Text = "MARCA";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(99, 173);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "ID CATEGORIA";
+            this.label6.Text = "CATEGORIA";
             // 
             // label7
             // 
@@ -116,6 +116,7 @@ namespace tp_winform_equipo_17B
             this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtCodigo
             // 
@@ -145,29 +146,29 @@ namespace tp_winform_equipo_17B
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 13;
             // 
-            // cbIdMarca
-            // 
-            this.cbIdMarca.FormattingEnabled = true;
-            this.cbIdMarca.Location = new System.Drawing.Point(203, 136);
-            this.cbIdMarca.Name = "cbIdMarca";
-            this.cbIdMarca.Size = new System.Drawing.Size(100, 21);
-            this.cbIdMarca.TabIndex = 14;
-            // 
             // cbMarca
             // 
             this.cbMarca.FormattingEnabled = true;
-            this.cbMarca.Location = new System.Drawing.Point(203, 164);
+            this.cbMarca.Location = new System.Drawing.Point(203, 136);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(100, 21);
-            this.cbMarca.TabIndex = 15;
+            this.cbMarca.TabIndex = 14;
+            // 
+            // cbCategoria
+            // 
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(203, 164);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(100, 21);
+            this.cbCategoria.TabIndex = 15;
             // 
             // AgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 331);
+            this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbMarca);
-            this.Controls.Add(this.cbIdMarca);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
@@ -186,6 +187,7 @@ namespace tp_winform_equipo_17B
             this.Name = "AgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Artículo";
+            this.Load += new System.EventHandler(this.AgregarArticulo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +207,7 @@ namespace tp_winform_equipo_17B
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.ComboBox cbIdMarca;
         private System.Windows.Forms.ComboBox cbMarca;
+        private System.Windows.Forms.ComboBox cbCategoria;
     }
 }

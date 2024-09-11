@@ -48,5 +48,7 @@ namespace tp_winform_equipo_17B
                 pictureBox1.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
         }
     }
+
+       
     }
 }
