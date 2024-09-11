@@ -30,7 +30,7 @@ namespace tp_winform_equipo_17B
 
         private void btnListarArticulos_Click(object sender, EventArgs e)
         {
-            Listar_Artículos ventanaListar = new Listar_Artículos();
+            ListarArtículos ventanaListar = new ListarArtículos();
             ventanaListar.ShowDialog();
 
 
