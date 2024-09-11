@@ -21,7 +21,7 @@ namespace tp_winform_equipo_17B
                 conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
 
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "SELECT Codigo, Nombre, Descripcion, Precio FROM ARTICULOS";
+                comando.CommandText = "select Codigo, Nombre, A.Descripcion, Precio, M.Descripcion as Marca, C.Descripcion as Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id and A.IdCategoria = C.Id ";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -33,7 +33,11 @@ namespace tp_winform_equipo_17B
                     aux.CodArticulo = (string)lector["Codigo"];
                     aux.NombreArticulo = (string)lector["Nombre"];
                     aux.DescripcionArticulo = (string)lector["Descripcion"];
-                    aux.PrecioArticulo = (decimal)lector["Precio"]; 
+                    aux.PrecioArticulo = (decimal)lector["Precio"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)lector["Marca"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)lector["Categoria"];
 
                     lista.Add(aux);
                 }

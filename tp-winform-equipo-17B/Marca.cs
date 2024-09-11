@@ -9,14 +9,12 @@ namespace tp_winform_equipo_17B
 {
     public class Marca
     {
-        private int IdMarca;
-        private string Nombre;
-
         public  int MarcaID { get; set; }
-        public string NombreMarca { get; set; }
+        public string Descripcion { get; set; }
 
-
-
-
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

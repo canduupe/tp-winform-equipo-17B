@@ -8,11 +8,12 @@ namespace tp_winform_equipo_17B
 {
     public class Categoria
     {
-        private int IdCategoria;
-        private string Nombre;
-        public int CategoriaId { get; set; }
-        public string NombreCategoria { get; set; }
+        public int IdCategoria { get; set; }
+        public string Descripcion { get; set; }
 
-
+        public override string ToString()
+        {
+            return Descripcion;
+        }
     }
 }

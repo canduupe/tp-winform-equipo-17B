@@ -13,5 +13,7 @@ namespace tp_winform_equipo_17B
         public string   NombreArticulo { get; set; }
         public string   DescripcionArticulo { get; set; }
         public decimal  PrecioArticulo { get; set; }
+        public Marca Marca { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }

@@ -185,7 +185,7 @@ namespace tp_winform_equipo_17B
             this.MinimumSize = new System.Drawing.Size(503, 370);
             this.Name = "AgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AgregarArticulo";
+            this.Text = "Agregar Artículo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

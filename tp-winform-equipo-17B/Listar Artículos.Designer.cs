@@ -39,15 +39,15 @@
             // dgNegocio
             // 
             this.dgNegocio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgNegocio.Location = new System.Drawing.Point(27, 40);
+            this.dgNegocio.Location = new System.Drawing.Point(41, 40);
             this.dgNegocio.Name = "dgNegocio";
-            this.dgNegocio.Size = new System.Drawing.Size(446, 191);
+            this.dgNegocio.Size = new System.Drawing.Size(663, 191);
             this.dgNegocio.TabIndex = 0;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 298);
+            this.dataGridView1.Location = new System.Drawing.Point(41, 268);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
@@ -57,7 +57,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(363, 298);
+            this.pictureBox1.Location = new System.Drawing.Point(424, 268);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 153);
@@ -69,17 +69,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 540);
+            this.ClientSize = new System.Drawing.Size(750, 443);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.dgNegocio);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(588, 579);
-            this.MinimumSize = new System.Drawing.Size(588, 579);
+            this.MaximumSize = new System.Drawing.Size(766, 482);
+            this.MinimumSize = new System.Drawing.Size(766, 482);
             this.Name = "ListarArtículos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarArtículos";
+            this.Text = "Listar Artículos";
             this.Load += new System.EventHandler(this.Listar_Artículos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgNegocio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
