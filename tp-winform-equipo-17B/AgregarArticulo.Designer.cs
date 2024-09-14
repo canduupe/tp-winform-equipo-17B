@@ -43,6 +43,7 @@ namespace tp_winform_equipo_17B
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -110,7 +111,7 @@ namespace tp_winform_equipo_17B
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(203, 230);
+            this.btnAgregar.Location = new System.Drawing.Point(138, 229);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 7;
@@ -162,11 +163,22 @@ namespace tp_winform_equipo_17B
             this.cbCategoria.Size = new System.Drawing.Size(100, 21);
             this.cbCategoria.TabIndex = 15;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(271, 229);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // AgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 331);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbMarca);
             this.Controls.Add(this.txtPrecio);
@@ -209,5 +221,6 @@ namespace tp_winform_equipo_17B
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.ComboBox cbMarca;
         private System.Windows.Forms.ComboBox cbCategoria;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

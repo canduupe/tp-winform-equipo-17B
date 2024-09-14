@@ -18,10 +18,10 @@ namespace tp_winform_equipo_17B
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
+                conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
 
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select Codigo, Nombre, A.Descripcion, Precio, M.Descripcion as Marca, C.Descripcion as Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id and A.IdCategoria = C.Id ";
+                comando.CommandText = "select A.Id ,Codigo, Nombre, A.Descripcion, Precio,M.Id, C.Id, M.Descripcion as Marca, C.Descripcion as Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id and A.IdCategoria = C.Id \r\n";
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -30,14 +30,17 @@ namespace tp_winform_equipo_17B
                 while (lector.Read())
                 {
                     Articulo aux = new Articulo();
+                    aux.Id = (int)lector["Id"];
                     aux.CodArticulo = (string)lector["Codigo"];
                     aux.NombreArticulo = (string)lector["Nombre"];
                     aux.DescripcionArticulo = (string)lector["Descripcion"];
                     aux.PrecioArticulo = (decimal)lector["Precio"];
                     aux.Marca = new Marca();
+                    aux.Marca.MarcaID = (int)lector["Id"]; 
                     aux.Marca.Descripcion = (string)lector["Marca"];
                     aux.Categoria = new Categoria();
                     aux.Categoria.Descripcion = (string)lector["Categoria"];
+                    aux.Categoria.IdCategoria= (int) lector["Id"];
 
                     lista.Add(aux);
                 }
@@ -61,7 +64,7 @@ namespace tp_winform_equipo_17B
             SqlCommand comando = new SqlCommand();
 
             
-            conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
+            conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
 
             
             comando.CommandType = System.Data.CommandType.Text;
@@ -88,6 +91,45 @@ namespace tp_winform_equipo_17B
             }
         }
 
+        public void Modificar(Articulo articulo)
+        {
+            SqlConnection conexion = new SqlConnection();
+            SqlCommand comando = new SqlCommand();
+
+
+            conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
+
+
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = "update ARTICULOS set Codigo = @cod, Nombre = @nombre, Descripcion = @desc, IdMarca = @IdMar, IdCategoria = @Idcate, Precio = @Prec where Id = @ID";
+            comando.Connection = conexion;
+
+
+            try
+            {
+                comando.Parameters.AddWithValue("@cod",articulo.CodArticulo);
+                comando.Parameters.AddWithValue("@nombre",articulo.NombreArticulo);
+                comando.Parameters.AddWithValue("@desc",articulo.DescripcionArticulo);
+                comando.Parameters.AddWithValue("@IdMar",articulo.Marca.MarcaID);
+                comando.Parameters.AddWithValue("@Idcate",articulo.Categoria.IdCategoria);
+                comando.Parameters.AddWithValue("@Prec",articulo.PrecioArticulo); 
+                comando.Parameters.AddWithValue("@ID",articulo.Id);
+
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex ;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+
+        }
 
 
 

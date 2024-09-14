@@ -19,7 +19,7 @@ namespace tp_winform_equipo_17B
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
+                conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
                 conexion.Open();
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "SELECT Id, Descripcion FROM MARCAS";
@@ -58,7 +58,7 @@ namespace tp_winform_equipo_17B
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
+                conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
                 conexion.Open();
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "SELECT Id, Descripcion FROM CATEGORIAS";

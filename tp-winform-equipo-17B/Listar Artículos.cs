@@ -49,6 +49,18 @@ namespace tp_winform_equipo_17B
         }
     }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Articulo articuloSeleccionado;
+            articuloSeleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
+
+            AgregarArticulo ventanaModificar = new AgregarArticulo (articuloSeleccionado);
+            ventanaModificar.ShowDialog();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

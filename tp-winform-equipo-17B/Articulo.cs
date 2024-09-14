@@ -9,6 +9,7 @@ namespace tp_winform_equipo_17B
 {
     public class Articulo
     {
+        public int Id { get; set; }
         public string CodArticulo { get; set; }
         public string   NombreArticulo { get; set; }
         public string   DescripcionArticulo { get; set; }

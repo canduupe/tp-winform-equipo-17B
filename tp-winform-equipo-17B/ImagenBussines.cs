@@ -22,7 +22,7 @@ namespace tp_winform_equipo_17B
             try
             {
 
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
+                conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES";
                 comando.Connection = conexion;
