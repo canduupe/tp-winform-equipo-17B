@@ -16,5 +16,10 @@ namespace tp_winform_equipo_17B
         {
             InitializeComponent();
         }
+
+        private void BuscarArticulo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

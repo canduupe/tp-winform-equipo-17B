@@ -4,11 +4,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dominio;
 
 
-namespace tp_winform_equipo_17B
+namespace Negocioo
 {
-    class ImagenBussines
+   public class ImagenBussines
     {
 
         public List<Imagen> listar()
@@ -21,18 +22,14 @@ namespace tp_winform_equipo_17B
 
             try
             {
-
-                conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES";
                 comando.Connection = conexion;
 
-
                 conexion.Open();
 
-
                 lector = comando.ExecuteReader();
-
 
                 while (lector.Read())
                 {
@@ -41,10 +38,8 @@ namespace tp_winform_equipo_17B
                     aux.UrlImagenes = (string) lector["ImagenUrl"];
                     aux.IdArti = (int)lector["IdArticulo"];
                     
-
                     lista.Add(aux);
                 }
-
 
                  conexion.Close();
 

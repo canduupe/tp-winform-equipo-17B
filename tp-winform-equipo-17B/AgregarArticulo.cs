@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Dominio;
+using Negocioo;
+
+
 
 namespace tp_winform_equipo_17B
 {
@@ -64,6 +68,7 @@ namespace tp_winform_equipo_17B
         {
             //Articulo art = new Articulo();
             Negocio negocio = new Negocio();
+
             try
             {
                 if(arti == null)

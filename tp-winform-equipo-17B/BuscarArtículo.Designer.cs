@@ -120,6 +120,7 @@
             this.Name = "BuscarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Buscar Artículo";
+            this.Load += new System.EventHandler(this.BuscarArticulo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

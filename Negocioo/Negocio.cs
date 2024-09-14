@@ -4,43 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using Dominio;
 
-namespace tp_winform_equipo_17B
+namespace Negocioo
 {
-    class Negocio
+    public class Negocio
     {
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos(); 
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
+                datos.setearConsulta("select A.Id ,Codigo, Nombre, A.Descripcion, Precio,M.Id, C.Id, M.Descripcion as Marca, C.Descripcion as Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id and A.IdCategoria = C.Id \r\n");
+                datos.realizarLectura();
 
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select A.Id ,Codigo, Nombre, A.Descripcion, Precio,M.Id, C.Id, M.Descripcion as Marca, C.Descripcion as Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id and A.IdCategoria = C.Id \r\n";
-                comando.Connection = conexion;
-
-                conexion.Open();
-                lector = comando.ExecuteReader();
-
-                while (lector.Read())
+                while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.Id = (int)lector["Id"];
-                    aux.CodArticulo = (string)lector["Codigo"];
-                    aux.NombreArticulo = (string)lector["Nombre"];
-                    aux.DescripcionArticulo = (string)lector["Descripcion"];
-                    aux.PrecioArticulo = (decimal)lector["Precio"];
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.CodArticulo = (string)datos.Lector["Codigo"];
+                    aux.NombreArticulo = (string)datos.Lector["Nombre"];
+                    aux.DescripcionArticulo = (string)datos.Lector["Descripcion"];
+                    aux.PrecioArticulo = (decimal)datos.Lector["Precio"];
                     aux.Marca = new Marca();
-                    aux.Marca.MarcaID = (int)lector["Id"]; 
-                    aux.Marca.Descripcion = (string)lector["Marca"];
+                    aux.Marca.MarcaID = (int)datos.Lector["Id"]; 
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)lector["Categoria"];
-                    aux.Categoria.IdCategoria= (int) lector["Id"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                    aux.Categoria.IdCategoria= (int)datos.Lector["Id"];
 
                     lista.Add(aux);
                 }
@@ -52,11 +45,10 @@ namespace tp_winform_equipo_17B
                 throw new Exception("Error al listar los artículos: " + ex.Message);
             }
             finally
-            { 
-                conexion.Close();
+            {
+                datos.cerrarConexion();
             }
         }
-
 
         public void agregar(Articulo art)
         {
@@ -64,7 +56,7 @@ namespace tp_winform_equipo_17B
             SqlCommand comando = new SqlCommand();
 
             
-            conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
+            conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
 
             
             comando.CommandType = System.Data.CommandType.Text;
@@ -97,7 +89,7 @@ namespace tp_winform_equipo_17B
             SqlCommand comando = new SqlCommand();
 
 
-            conexion.ConnectionString = "server=.\\SQLEXPRESS01; database=CATALOGO_P3_DB; integrated security=true;";
+            conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
 
 
             comando.CommandType = System.Data.CommandType.Text;
