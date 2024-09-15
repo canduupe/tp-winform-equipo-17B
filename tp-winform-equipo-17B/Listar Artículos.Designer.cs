@@ -35,7 +35,10 @@
             this.btEliminar = new System.Windows.Forms.Button();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
-            this.btBuscar = new System.Windows.Forms.Button();
+            this.lblCodigoF = new System.Windows.Forms.Label();
+            this.txtFiltrar2 = new System.Windows.Forms.TextBox();
+            this.lblFiltroCat = new System.Windows.Forms.Label();
+            this.txtFiltrarCate = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgNegocio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArti)).BeginInit();
             this.SuspendLayout();
@@ -92,29 +95,55 @@
             // lblFiltro
             // 
             this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(431, 50);
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(545, 54);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(116, 16);
+            this.lblFiltro.Size = new System.Drawing.Size(95, 13);
             this.lblFiltro.TabIndex = 6;
-            this.lblFiltro.Text = "Filtrar por nombre:";
+            this.lblFiltro.Text = "Filtrar por NOMBE:";
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(547, 49);
+            this.txtFiltro.Location = new System.Drawing.Point(646, 50);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(138, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(104, 20);
             this.txtFiltro.TabIndex = 7;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
-            // btBuscar
+            // lblCodigoF
             // 
-            this.btBuscar.Location = new System.Drawing.Point(702, 47);
-            this.btBuscar.Name = "btBuscar";
-            this.btBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btBuscar.TabIndex = 8;
-            this.btBuscar.Text = "BUSCAR";
-            this.btBuscar.UseVisualStyleBackColor = true;
-            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
+            this.lblCodigoF.AutoSize = true;
+            this.lblCodigoF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigoF.Location = new System.Drawing.Point(35, 54);
+            this.lblCodigoF.Name = "lblCodigoF";
+            this.lblCodigoF.Size = new System.Drawing.Size(95, 13);
+            this.lblCodigoF.TabIndex = 9;
+            this.lblCodigoF.Text = "FIltrar por MARCA:";
+            // 
+            // txtFiltrar2
+            // 
+            this.txtFiltrar2.Location = new System.Drawing.Point(136, 51);
+            this.txtFiltrar2.Name = "txtFiltrar2";
+            this.txtFiltrar2.Size = new System.Drawing.Size(104, 20);
+            this.txtFiltrar2.TabIndex = 10;
+            this.txtFiltrar2.TextChanged += new System.EventHandler(this.txtFiltrar2_TextChanged);
+            // 
+            // lblFiltroCat
+            // 
+            this.lblFiltroCat.AutoSize = true;
+            this.lblFiltroCat.Location = new System.Drawing.Point(282, 54);
+            this.lblFiltroCat.Name = "lblFiltroCat";
+            this.lblFiltroCat.Size = new System.Drawing.Size(118, 13);
+            this.lblFiltroCat.TabIndex = 11;
+            this.lblFiltroCat.Text = "Filtrar por CATEGORIA:";
+            // 
+            // txtFiltrarCate
+            // 
+            this.txtFiltrarCate.Location = new System.Drawing.Point(403, 50);
+            this.txtFiltrarCate.Name = "txtFiltrarCate";
+            this.txtFiltrarCate.Size = new System.Drawing.Size(104, 20);
+            this.txtFiltrarCate.TabIndex = 12;
+            this.txtFiltrarCate.TextChanged += new System.EventHandler(this.txtFiltrarCate_TextChanged);
             // 
             // ListarArtículos
             // 
@@ -122,7 +151,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1049, 452);
-            this.Controls.Add(this.btBuscar);
+            this.Controls.Add(this.txtFiltrarCate);
+            this.Controls.Add(this.lblFiltroCat);
+            this.Controls.Add(this.txtFiltrar2);
+            this.Controls.Add(this.lblCodigoF);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
             this.Controls.Add(this.btEliminar);
@@ -154,6 +186,9 @@
         private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFiltro;
-        private System.Windows.Forms.Button btBuscar;
+        private System.Windows.Forms.Label lblCodigoF;
+        private System.Windows.Forms.TextBox txtFiltrar2;
+        private System.Windows.Forms.Label lblFiltroCat;
+        private System.Windows.Forms.TextBox txtFiltrarCate;
     }
 }

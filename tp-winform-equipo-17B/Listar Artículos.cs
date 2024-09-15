@@ -91,12 +91,36 @@ namespace tp_winform_equipo_17B
             }
         }
 
-        private void btBuscar_Click(object sender, EventArgs e)
+     
+       
+
+        private void txtFiltrar2_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltroMarca;
+            string filtroMarca = txtFiltrar2.Text;
+
+            if (filtroMarca.Length >=3)
+            {
+                listaFiltroMarca = listaArticulos.FindAll(y => y.Marca.Descripcion.ToLower().Contains(filtroMarca.ToLower()));
+
+            }
+            else
+            {
+                listaFiltroMarca = listaArticulos;
+            }
+
+            dgNegocio.DataSource = null;
+            dgNegocio.DataSource = listaFiltroMarca;
+            ocultarColumnas();
+
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
 
-            if(filtro != "")
+            if (filtro.Length >=3)
             {
                 listaFiltrada = listaArticulos.FindAll(x => x.NombreArticulo.ToUpper().Contains(filtro.ToUpper()));
             }
@@ -104,14 +128,34 @@ namespace tp_winform_equipo_17B
             {
                 listaFiltrada = listaArticulos;
             }
-     
+
             dgNegocio.DataSource = null;
             dgNegocio.DataSource = listaFiltrada;
+            ocultarColumnas();
+        }
+
+        private void txtFiltrarCate_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltroCate;
+            string filtroCate = txtFiltrarCate.Text;
+
+            if (filtroCate.Length >= 3)
+            {
+
+                listaFiltroCate = listaArticulos.FindAll(z => z.Categoria.Descripcion.ToLower().Contains(filtroCate.ToLower()));
+            }
+            else
+            {
+                listaFiltroCate = listaArticulos;
+            }
+
+            dgNegocio.DataSource = null;
+            dgNegocio.DataSource= listaFiltroCate;
             ocultarColumnas();
 
         }
 
-       
+        
     }
    
 }
