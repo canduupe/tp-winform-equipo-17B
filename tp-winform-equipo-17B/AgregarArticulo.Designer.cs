@@ -149,6 +149,7 @@ namespace tp_winform_equipo_17B
             // 
             // cbMarca
             // 
+            this.cbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMarca.FormattingEnabled = true;
             this.cbMarca.Location = new System.Drawing.Point(203, 136);
             this.cbMarca.Name = "cbMarca";
@@ -157,6 +158,7 @@ namespace tp_winform_equipo_17B
             // 
             // cbCategoria
             // 
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
             this.cbCategoria.Location = new System.Drawing.Point(203, 164);
             this.cbCategoria.Name = "cbCategoria";

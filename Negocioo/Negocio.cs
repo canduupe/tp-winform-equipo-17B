@@ -17,7 +17,7 @@ namespace Negocioo
 
             try
             {
-                datos.setearConsulta("select A.Id ,Codigo, Nombre, A.Descripcion, Precio,M.Id, C.Id, M.Descripcion as Marca, C.Descripcion as Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id and A.IdCategoria = C.Id \r\n");
+                datos.setearConsulta("select A.Id ,Codigo, Nombre, A.Descripcion, Precio,M.Id, C.Id, M.Descripcion as Marca, C.Descripcion as Categoria from ARTICULOS A, MARCAS M, CATEGORIAS C where A.IdMarca = M.Id and A.IdCategoria = C.Id");
                 datos.realizarLectura();
 
                 while (datos.Lector.Read())
@@ -29,11 +29,9 @@ namespace Negocioo
                     aux.DescripcionArticulo = (string)datos.Lector["Descripcion"];
                     aux.PrecioArticulo = (decimal)datos.Lector["Precio"];
                     aux.Marca = new Marca();
-                    aux.Marca.MarcaID = (int)datos.Lector["Id"]; 
                     aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.Categoria = new Categoria();
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-                    aux.Categoria.IdCategoria= (int)datos.Lector["Id"];
 
                     lista.Add(aux);
                 }
@@ -50,40 +48,30 @@ namespace Negocioo
             }
         }
 
+
         public void agregar(Articulo art)
         {
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
+            AccesoDatos datos = new AccesoDatos();
 
-            
-            conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
-
-            
-            comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
-                              "VALUES ('" + art.CodArticulo + "', '" + art.NombreArticulo + "', '" + art.DescripcionArticulo + "', " +
-                              art.IdMarca + ", " + art.IdCategoria + ", " + art.PrecioArticulo + ")";
-            comando.Connection = conexion;
-
-            
             try
             {
-                conexion.Open();
-                comando.ExecuteNonQuery();  
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES ('" + art.CodArticulo + "', '" + art.NombreArticulo + "', '" + art.DescripcionArticulo + "', " + art.IdMarca + ",  @IdCategoria  ," + art.PrecioArticulo);
+                datos.setearParametro("@IdCategoria", art.IdCategoria);
+                datos.realizarAccion();
+           
             }
             catch (Exception ex)
-            {
-                
+            { 
                 throw ex;
             }
             finally
             {
-                
-                conexion.Close();
+                datos.cerrarConexion();
             }
         }
 
-        public void Modificar(Articulo articulo)
+
+        public void modificar(Articulo articulo)
         {
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();

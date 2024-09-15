@@ -12,7 +12,6 @@ using Dominio;
 using Negocioo;
 
 
-
 namespace tp_winform_equipo_17B
 {
     public partial class AgregarArticulo : Form
@@ -28,33 +27,25 @@ namespace tp_winform_equipo_17B
             arti = articulo;
             Text = "Modificar Articulo";
         }
+
+
         private void AgregarArticulo_Load(object sender, EventArgs e)
         {
+            MarcaNegocio mar = new MarcaNegocio();
+            CategoriaNegocio cat = new CategoriaNegocio();
 
             try
             {
-                List<Marca> marcas = DataHelper.ObtenerMarcas();
-                List<Categoria> categorias = DataHelper.ObtenerCategorias();
-
-                cbMarca.DataSource = marcas;
-                cbMarca.ValueMember = "MarcaID";//esto es como un alias que le doy
-                cbMarca.DisplayMember = "Descripcion";
-                cbCategoria.DataSource = categorias;
-                cbCategoria.ValueMember = "IdCategoria";
-                cbCategoria.DisplayMember = "Descripcion";
-
-                if (arti != null)
-                {
-                    txtCodigo.Text = arti.CodArticulo;
-                    txtNombre.Text = arti.NombreArticulo;
-                    txtDescripcion.Text = arti.DescripcionArticulo;
-                    txtPrecio.Text = arti.PrecioArticulo.ToString();
-                    cbMarca.SelectedValue = arti.Marca.MarcaID;//aca uso el alias 
-                    cbCategoria.SelectedValue = arti.Categoria.IdCategoria;
-
-                }
-
-
+                cbMarca.DataSource = mar.listar();
+                cbCategoria.DataSource = cat.listar();
+                //List<Marca> marcas = DataHelper.ObtenerMarcas();
+                //List<Categoria> categorias = DataHelper.ObtenerCategorias();
+                arti.CodArticulo = txtCodigo.Text;
+                arti.NombreArticulo = txtNombre.Text;
+                arti.DescripcionArticulo = txtDescripcion.Text;
+                arti.Marca = (Marca)cbMarca.SelectedItem;
+                arti.Categoria = (Categoria)cbCategoria.SelectedItem;
+                arti.PrecioArticulo = decimal.Parse(txtPrecio.Text);
             }
             catch (Exception ex)
             {
@@ -66,41 +57,40 @@ namespace tp_winform_equipo_17B
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //Articulo art = new Articulo();
-            Negocio negocio = new Negocio();
+           Negocio negocio = new Negocio();
+           Articulo arti = new Articulo();
 
             try
             {
-                if(arti == null)
-                arti = new Articulo();
-
+               if(arti == null)
+                
                 arti.CodArticulo = txtCodigo.Text;
                 arti.NombreArticulo = txtNombre.Text;
                 arti.DescripcionArticulo = txtDescripcion.Text;
-                arti.PrecioArticulo = Convert.ToDecimal(txtPrecio.Text);
-
-                arti.IdMarca = (int)cbMarca.SelectedValue;
-                arti.IdCategoria = (int)cbCategoria.SelectedValue;
+                arti.Marca = (Marca)cbMarca.SelectedItem;
+                arti.Categoria = (Categoria)cbCategoria.SelectedItem;
+                arti.PrecioArticulo = decimal.Parse(txtPrecio.Text);
 
                 
-                if(arti.Id != 0)//Si hay un ID significa que lo quiero modificar, si no, estoy modificando(esto lo hago porque estoy reutilizando la form de AGREGAR ARTICULO
+                if (arti.Id != 0)//Si hay un ID significa que lo quiero modificar, si no, estoy modificando(esto lo hago porque estoy reutilizando la form de AGREGAR ARTICULO
                 {
-                    negocio.Modificar(arti);
-                    MessageBox.Show("Se modificó correctamente");
+                    negocio.modificar(arti);
+                    MessageBox.Show("Se modifico correctamente");
                 }
-                else
-                {
+                else { 
+                
 
                 negocio.agregar(arti);// SI NO TIENE ID SIGNIFICA QUE ESTOY AGREGANDO/DANDO DE ALTA 
                     MessageBox.Show("Se agregó correctamente");
                 }
-
-                Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                Close();
             }
         }
 

@@ -29,6 +29,11 @@ namespace Negocioo
             comando.CommandText = consulta;
         }
 
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
+
         public void realizarLectura()
         {
             comando.Connection = conexion;
@@ -37,6 +42,21 @@ namespace Negocioo
             {
                 conexion.Open();
                 lector = comando.ExecuteReader();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void realizarAccion()
+        {
+            comando.Connection = conexion;
+
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

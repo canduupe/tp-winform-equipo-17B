@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
+using Negocioo;
 
 namespace tp_winform_equipo_17B
 {
@@ -19,6 +21,18 @@ namespace tp_winform_equipo_17B
 
         private void BuscarArticulo_Load(object sender, EventArgs e)
         {
+            MarcaNegocio mar = new MarcaNegocio();
+            CategoriaNegocio cat = new CategoriaNegocio();
+
+            try
+            {
+                cmbMarcas.DataSource = mar.listar();
+                cmbCategorias.DataSource = cat.listar();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
         }
     }
