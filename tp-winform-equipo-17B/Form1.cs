@@ -24,18 +24,11 @@ namespace tp_winform_equipo_17B
             lblFecha.Text = "Fecha actual:  " + DateTime.Now.ToString("dd/MM/yyyy");
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            BuscarArticulo ventanaBuscar = new BuscarArticulo();
-            ventanaBuscar.ShowDialog();
-        }
-
         private void btnListarArticulos_Click(object sender, EventArgs e)
         {
             ListarArtículos ventanaListar = new ListarArtículos();
             ventanaListar.ShowDialog();
 
         }
-
     }
 }

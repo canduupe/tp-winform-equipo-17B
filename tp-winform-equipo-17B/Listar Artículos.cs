@@ -29,9 +29,7 @@ namespace tp_winform_equipo_17B
             listaArticulos = negocio.listar();
             dgNegocio.DataSource = listaArticulos;
             pictureBoxArti.Load(listaArticulos[0].Imagen.URlImagen);
-            dgNegocio.Columns["IdMarca"].Visible = false;
-            dgNegocio.Columns["IdCategoria"].Visible = false;
-            dgNegocio.Columns["Imagen"].Visible = false;
+            ocultarColumnas();
         }
 
         private void dgNegocio_SelectionChanged(object sender, EventArgs e)
@@ -41,7 +39,7 @@ namespace tp_winform_equipo_17B
         }
 
         private void CargarImagen (string imagen)
-    {
+         {
         try
         {
             pictureBoxArti.Load(imagen);
@@ -50,7 +48,13 @@ namespace tp_winform_equipo_17B
         {
                 pictureBoxArti.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
         }
-    }
+        }
+        private void ocultarColumnas()
+        {
+            dgNegocio.Columns["IdMarca"].Visible = false;
+            dgNegocio.Columns["IdCategoria"].Visible = false;
+            dgNegocio.Columns["Imagen"].Visible = false;
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -85,6 +89,26 @@ namespace tp_winform_equipo_17B
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void btBuscar_Click(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltro.Text;
+
+            if(filtro != "")
+            {
+                listaFiltrada = listaArticulos.FindAll(x => x.NombreArticulo.ToUpper().Contains(filtro.ToUpper()));
+            }
+            else
+            {
+                listaFiltrada = listaArticulos;
+            }
+     
+            dgNegocio.DataSource = null;
+            dgNegocio.DataSource = listaFiltrada;
+            ocultarColumnas();
+
         }
     }
 }

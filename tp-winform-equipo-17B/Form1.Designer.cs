@@ -33,7 +33,6 @@
             this.agregarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStripFecha = new System.Windows.Forms.StatusStrip();
             this.lblFecha = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnListarArticulos = new System.Windows.Forms.Button();
             this.lbBienvenidos = new System.Windows.Forms.Label();
             this.Menu1.SuspendLayout();
@@ -56,14 +55,14 @@
             this.artículosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarToolStripMenuItem});
             this.artículosToolStripMenuItem.Name = "artículosToolStripMenuItem";
-            this.artículosToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.artículosToolStripMenuItem.Text = "Artículos ";
+            this.artículosToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.artículosToolStripMenuItem.Text = "Archivo";
             // 
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
             this.agregarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.agregarToolStripMenuItem.Text = "Agregar";
+            this.agregarToolStripMenuItem.Text = "NuevoArtículo";
             // 
             // statusStripFecha
             // 
@@ -84,25 +83,14 @@
             this.lblFecha.Size = new System.Drawing.Size(131, 17);
             this.lblFecha.Text = "toolStripStatusLabel1";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBuscar.Location = new System.Drawing.Point(246, 194);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(136, 41);
-            this.btnBuscar.TabIndex = 3;
-            this.btnBuscar.Text = "Buscar Artículo";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // btnListarArticulos
             // 
             this.btnListarArticulos.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnListarArticulos.Location = new System.Drawing.Point(246, 284);
+            this.btnListarArticulos.Location = new System.Drawing.Point(245, 220);
             this.btnListarArticulos.Name = "btnListarArticulos";
-            this.btnListarArticulos.Size = new System.Drawing.Size(136, 41);
+            this.btnListarArticulos.Size = new System.Drawing.Size(153, 45);
             this.btnListarArticulos.TabIndex = 4;
-            this.btnListarArticulos.Text = "Listar Artículos";
+            this.btnListarArticulos.Text = "ARTÍCULOS";
             this.btnListarArticulos.UseVisualStyleBackColor = true;
             this.btnListarArticulos.Click += new System.EventHandler(this.btnListarArticulos_Click);
             // 
@@ -110,7 +98,7 @@
             // 
             this.lbBienvenidos.AutoSize = true;
             this.lbBienvenidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBienvenidos.Location = new System.Drawing.Point(177, 54);
+            this.lbBienvenidos.Location = new System.Drawing.Point(172, 137);
             this.lbBienvenidos.Name = "lbBienvenidos";
             this.lbBienvenidos.Size = new System.Drawing.Size(314, 31);
             this.lbBienvenidos.TabIndex = 5;
@@ -120,11 +108,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.ForestGreen;
+            this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(649, 441);
             this.Controls.Add(this.lbBienvenidos);
             this.Controls.Add(this.btnListarArticulos);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.statusStripFecha);
             this.Controls.Add(this.Menu1);
             this.MaximizeBox = false;
@@ -150,7 +137,6 @@
         private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStripFecha;
         private System.Windows.Forms.ToolStripStatusLabel lblFecha;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnListarArticulos;
         private System.Windows.Forms.Label lbBienvenidos;
     }
