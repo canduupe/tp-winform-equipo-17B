@@ -9,52 +9,41 @@ using Dominio;
 
 namespace Negocioo
 {
-   public class ImagenBussines
+    public class ImagenBussines
     {
-
         public List<Imagen> listar()
         {
-
-        List<Imagen> lista = new List<Imagen>();
-        SqlConnection conexion = new SqlConnection();
-        SqlCommand comando = new SqlCommand();
-        SqlDataReader lector;
+            List<Imagen> lista = new List<Imagen>();
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES";
-                comando.Connection = conexion;
+                datos.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES");
+                datos.realizarLectura();
 
-                conexion.Open();
-
-                lector = comando.ExecuteReader();
-
-                while (lector.Read())
+                while (datos.Lector.Read())
                 {
                     Imagen aux = new Imagen();
-                    aux.IdImagen = (int) lector["Id"];
-                    aux.UrlImagenes = (string) lector["ImagenUrl"];
-                    aux.IdArti = (int)lector["IdArticulo"];
-                    
+                    aux.IdImagen = (int)datos.Lector["Id"];
+                    aux.URlImagen = (string)datos.Lector["ImagenUrl"];
+                    aux.IdArti = (int)datos.Lector["IdArticulo"];
+
+
                     lista.Add(aux);
                 }
 
-                 conexion.Close();
-
                 return lista;
             }
-
             catch (Exception ex)
             {
-
-                throw new Exception("Error al listar los artículos: " + ex.Message);
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
             }
         }
-
-
-
-
     }
-}
+}  
+
+

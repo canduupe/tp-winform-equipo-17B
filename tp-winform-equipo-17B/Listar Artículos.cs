@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negocioo;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace tp_winform_equipo_17B
 {
     public partial class ListarArtículos : Form
     {
-        private List<Imagen> imag;
-
+        private List<Articulo> listaArticulos;
         public ListarArtículos()
         {
             InitializeComponent();
@@ -25,29 +25,29 @@ namespace tp_winform_equipo_17B
         {
             Negocio negocio = new Negocio();
 
-            dgNegocio.AutoGenerateColumns = true;
-            dgNegocio.DataSource = negocio.listar();
-
-            ImagenBussines Imagn = new ImagenBussines();
-            imag = Imagn.listar();
-            dataGridView1.DataSource = imag;
-            CargarImagen(imag[0].UrlImagenes);
+            listaArticulos = negocio.listar();
+            dgNegocio.DataSource = listaArticulos;
+            pictureBoxArti.Load(listaArticulos[0].Imagen.URlImagen);
+            dgNegocio.Columns["IdMarca"].Visible = false;
+            dgNegocio.Columns["IdCategoria"].Visible = false;
+            dgNegocio.Columns["Imagen"].Visible = false;
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void dgNegocio_SelectionChanged(object sender, EventArgs e)
         {
-            Imagen imagenSeleccionada = (Imagen) dataGridView1.CurrentRow.DataBoundItem;
-            CargarImagen(imagenSeleccionada.UrlImagenes);
+            Articulo seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
+            CargarImagen(seleccionado.Imagen.URlImagen);
         }
-    private void CargarImagen (string imagen)
+
+        private void CargarImagen (string imagen)
     {
         try
         {
-            pictureBox1.Load(imagen);
+            pictureBoxArti.Load(imagen);
         }
         catch (Exception ex)
         {
-                pictureBox1.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
+                pictureBoxArti.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
         }
     }
 
@@ -64,5 +64,6 @@ namespace tp_winform_equipo_17B
         {
             Close();
         }
+        
     }
 }

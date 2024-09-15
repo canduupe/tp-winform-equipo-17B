@@ -11,9 +11,12 @@ namespace Dominio
         public int IdImagen {  get; set; }
 
         public int IdArti { get; set; }    
-        public string UrlImagenes { get; set; }
+        public string URlImagen { get; set; }
 
-
+        public override string ToString()
+        {
+            return URlImagen;
+        }
 
 
     }
