@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -64,6 +65,26 @@ namespace tp_winform_equipo_17B
         {
             Close();
         }
-        
+
+        private void btEliminar_Click(object sender, EventArgs e)
+        {
+            Negocio negocio = new Negocio();
+            Articulo seleccionado;
+
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("ESTAS SEGURO DE ELIMINAR ESTE ARTICULO", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
+                    negocio.eliminar(seleccionado.Id);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocioo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,16 +35,7 @@ namespace tp_winform_equipo_17B
             ListarArtículos ventanaListar = new ListarArtículos();
             ventanaListar.ShowDialog();
 
-
-
         }
 
-        private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AgregarArticulo agregarArticulo = new AgregarArticulo();
-            agregarArticulo.ShowDialog();
-        }
-
-       
     }
 }
