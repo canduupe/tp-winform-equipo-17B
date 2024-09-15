@@ -16,14 +16,16 @@ namespace Negocioo
 
             try
             {
-                datos.setearConsulta("Select Id, Descripcion From CATEGORIAS");
+                datos.setearConsulta("SELECT id, Descripcion FROM CATEGORIAS");
                 datos.realizarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Categoria categoria = new Categoria();
-                    categoria.IdCategoria = (int)datos.Lector["Id"];
-                    categoria.Descripcion = (string)datos.Lector["Descripcion"];
+                    Categoria categoria = new Categoria
+                    {
+                        IdCategoria = (int)datos.Lector["id"],
+                        Descripcion = (string)datos.Lector["Descripcion"]
+                    };
 
                     lista.Add(categoria);
                 }

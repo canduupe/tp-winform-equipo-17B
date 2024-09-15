@@ -16,10 +16,11 @@ namespace tp_winform_equipo_17B
 {
     public partial class AgregarArticulo : Form
     {
-        private Articulo arti = null;
+        public Articulo arti ;
         public AgregarArticulo()
         {
             InitializeComponent();
+            arti = new Articulo();  
         }
         public AgregarArticulo(Articulo articulo)
         {
@@ -37,56 +38,64 @@ namespace tp_winform_equipo_17B
             try
             {
                 cbMarca.DataSource = mar.listar();
+                cbMarca.DisplayMember = "Descripcion";  
+                cbMarca.ValueMember = "MarcaID";        
+
                 cbCategoria.DataSource = cat.listar();
-                //List<Marca> marcas = DataHelper.ObtenerMarcas();
-                //List<Categoria> categorias = DataHelper.ObtenerCategorias();
-                arti.CodArticulo = txtCodigo.Text;
-                arti.NombreArticulo = txtNombre.Text;
-                arti.DescripcionArticulo = txtDescripcion.Text;
-                arti.Marca = (Marca)cbMarca.SelectedItem;
-                arti.Categoria = (Categoria)cbCategoria.SelectedItem;
-                arti.PrecioArticulo = decimal.Parse(txtPrecio.Text);
+                cbCategoria.DisplayMember = "Descripcion";
+                cbCategoria.ValueMember = "IdCategoria";
+
+                             
+                    txtCodigo.Text = arti.CodArticulo;
+                    txtNombre.Text = arti.NombreArticulo;
+                    txtDescripcion.Text = arti.DescripcionArticulo;
+                    cbMarca.SelectedValue = arti.IdMarca;
+                    cbCategoria.SelectedValue = arti.IdCategoria;
+                    txtPrecio.Text = arti.PrecioArticulo.ToString();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar datos: " + ex.Message);
             }
         }
-        
-        
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-           Negocio negocio = new Negocio();
-           Articulo arti = new Articulo();
+            Negocio negocio = new Negocio();
+            Articulo arti = new Articulo();
 
             try
             {
-               if(arti == null)
-                
                 arti.CodArticulo = txtCodigo.Text;
                 arti.NombreArticulo = txtNombre.Text;
                 arti.DescripcionArticulo = txtDescripcion.Text;
-                arti.Marca = (Marca)cbMarca.SelectedItem;
-                arti.Categoria = (Categoria)cbCategoria.SelectedItem;
-                arti.PrecioArticulo = decimal.Parse(txtPrecio.Text);
 
                 
-                if (arti.Id != 0)//Si hay un ID significa que lo quiero modificar, si no, estoy modificando(esto lo hago porque estoy reutilizando la form de AGREGAR ARTICULO
+                arti.IdMarca = ((Marca)cbMarca.SelectedItem).MarcaID;
+                arti.IdCategoria = ((Categoria)cbCategoria.SelectedItem).IdCategoria;
+
+                decimal precio;
+                if (decimal.TryParse(txtPrecio.Text, out precio))
                 {
-                    negocio.modificar(arti);
-                    MessageBox.Show("Se modifico correctamente");
+                    arti.PrecioArticulo = precio;
                 }
-                else { 
+                else
+                {
+                    MessageBox.Show("El formato del precio no es correcto. Ingrese un valor numérico.");
+                    return;
+                }
+
+                negocio.agregar(arti);
+                MessageBox.Show("Artículo agregado correctamente");
+
                 
 
-                negocio.agregar(arti);// SI NO TIENE ID SIGNIFICA QUE ESTOY AGREGANDO/DANDO DE ALTA 
-                    MessageBox.Show("Se agregó correctamente");
-                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {

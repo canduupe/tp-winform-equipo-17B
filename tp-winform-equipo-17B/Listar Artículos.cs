@@ -110,5 +110,8 @@ namespace tp_winform_equipo_17B
             ocultarColumnas();
 
         }
+
+       
     }
+   
 }

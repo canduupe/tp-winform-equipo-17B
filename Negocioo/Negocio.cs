@@ -13,27 +13,44 @@ namespace Negocioo
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            AccesoDatos datos = new AccesoDatos(); 
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("select A.Id ,Codigo, Nombre, A.Descripcion, Precio, M.Descripcion as Marca, C.Descripcion as Categoria, ImagenUrl from ARTICULOS A, MARCAS M, CATEGORIAS C, IMAGENES I where A.IdMarca = M.Id and A.IdCategoria = C.Id and A.Id = I.Id");
+                //NO TOQUEN LA CONSULTA
+                datos.setearConsulta(@"
+            SELECT A.Id, Codigo, Nombre, A.Descripcion, Precio, 
+                   M.Descripcion AS Marca, C.Descripcion AS Categoria, 
+                   I.ImagenUrl
+            FROM ARTICULOS A
+            INNER JOIN MARCAS M ON A.IdMarca = M.Id
+            INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id
+            LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo
+        ");
                 datos.realizarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Articulo aux = new Articulo();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.CodArticulo = (string)datos.Lector["Codigo"];
-                    aux.NombreArticulo = (string)datos.Lector["Nombre"];
-                    aux.DescripcionArticulo = (string)datos.Lector["Descripcion"];
-                    aux.PrecioArticulo = (decimal)datos.Lector["Precio"];
-                    aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-                    aux.Imagen = new Imagen();
-                    aux.Imagen.URlImagen = (string)datos.Lector["ImagenUrl"];
+                    Articulo aux = new Articulo
+                    {
+                        Id = (int)datos.Lector["Id"],
+                        CodArticulo = (string)datos.Lector["Codigo"],
+                        NombreArticulo = (string)datos.Lector["Nombre"],
+                        DescripcionArticulo = (string)datos.Lector["Descripcion"],
+                        PrecioArticulo = (decimal)datos.Lector["Precio"],
+                        Marca = new Marca
+                        {
+                            Descripcion = (string)datos.Lector["Marca"]
+                        },
+                        Categoria = new Categoria
+                        {
+                            Descripcion = (string)datos.Lector["Categoria"]
+                        },
+                        Imagen = new Imagen
+                        {
+                            URlImagen = datos.Lector["ImagenUrl"] as string
+                        }
+                    };
 
                     lista.Add(aux);
                 }
@@ -50,20 +67,26 @@ namespace Negocioo
             }
         }
 
-
         public void agregar(Articulo art)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " + "VALUES ('" + art.CodArticulo + "', '" + art.NombreArticulo + "', '" + art.DescripcionArticulo + "', " + art.IdMarca + ",  @IdCategoria  ," + art.PrecioArticulo);
-                datos.setearParametro("@IdCategoria", art.IdCategoria);
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) " +
+                                     "VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+
+                datos.setearParametro("@Codigo", art.CodArticulo);
+                datos.setearParametro("@Nombre", art.NombreArticulo);
+                datos.setearParametro("@Descripcion", art.DescripcionArticulo);
+                datos.setearParametro("@IdMarca", art.IdMarca); 
+                datos.setearParametro("@IdCategoria", art.IdCategoria); 
+                datos.setearParametro("@Precio", art.PrecioArticulo);
+
                 datos.realizarAccion();
-           
             }
             catch (Exception ex)
-            { 
+            {
                 throw ex;
             }
             finally
@@ -131,5 +154,7 @@ namespace Negocioo
         }
 
     }
+    
+
 }
 

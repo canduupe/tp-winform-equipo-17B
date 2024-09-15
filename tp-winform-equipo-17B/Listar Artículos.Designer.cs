@@ -95,7 +95,7 @@
             this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiltro.Location = new System.Drawing.Point(431, 50);
             this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(115, 16);
+            this.lblFiltro.Size = new System.Drawing.Size(116, 16);
             this.lblFiltro.TabIndex = 6;
             this.lblFiltro.Text = "Filtrar por nombre:";
             // 

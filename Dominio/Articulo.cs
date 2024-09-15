@@ -19,5 +19,7 @@ namespace Dominio
         public int IdMarca { get; set; } 
         public int IdCategoria { get; set; } 
         public Imagen Imagen { get; set; }
+        public string DescripcionMarca { get; set; }  
+        public string DescripcionCategoria { get; set; }
     }
 }

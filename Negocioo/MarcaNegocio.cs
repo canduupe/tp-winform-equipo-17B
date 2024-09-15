@@ -16,21 +16,23 @@ namespace Negocioo
 
             try
             {
-                datos.setearConsulta("Select Id, Descripcion From MARCAS");
+                datos.setearConsulta("SELECT id, Descripcion FROM MARCAS");
                 datos.realizarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Marca marca = new Marca();
-                    marca.MarcaID = (int)datos.Lector["Id"];
-                    marca.Descripcion = (string)datos.Lector["Descripcion"];
+                    Marca marca = new Marca
+                    {
+                        MarcaID = (int)datos.Lector["id"],
+                        Descripcion = (string)datos.Lector["Descripcion"]
+                    };
 
                     lista.Add(marca);
                 }
 
                 return lista;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -39,6 +41,5 @@ namespace Negocioo
                 datos.cerrarConexion();
             }
         }
-
     }
 }
