@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Dominio;
 using Negocioo;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace tp_winform_equipo_17B
@@ -35,7 +36,7 @@ namespace tp_winform_equipo_17B
             
             MarcaNegocio mar = new MarcaNegocio();
             CategoriaNegocio cat = new CategoriaNegocio();
-           //cambio para que no largue excepcion
+
             Articulo arti = new Articulo();
             try
             {
@@ -55,9 +56,6 @@ namespace tp_winform_equipo_17B
                     cbMarca.SelectedValue = arti.IdMarca;
                     cbCategoria.SelectedValue = arti.IdCategoria;
                     txtPrecio.Text = arti.PrecioArticulo.ToString();
-                    //cbMarca.SelectedValue = arti.Marca.MarcaID;
-                    //cbCategoria.SelectedValue = arti.Categoria.IdCategoria;
-
                 
             }
             catch (Exception ex)
@@ -74,12 +72,9 @@ namespace tp_winform_equipo_17B
 
             try
             {
-                
-
                 arti.CodArticulo = txtCodigo.Text;
                 arti.NombreArticulo = txtNombre.Text;
                 arti.DescripcionArticulo = txtDescripcion.Text;
-
                 
                 arti.IdMarca = ((Marca)cbMarca.SelectedItem).MarcaID;
                 arti.IdCategoria = ((Categoria)cbCategoria.SelectedItem).IdCategoria;
@@ -98,8 +93,6 @@ namespace tp_winform_equipo_17B
              
                 negocio.agregar(arti);
                 MessageBox.Show("Artículo agregado correctamente");
-                
-
 
             }
             catch (Exception ex)
@@ -116,5 +109,23 @@ namespace tp_winform_equipo_17B
         {
             Close();
         }
+
+        private void txtURLimagen_Leave(object sender, EventArgs e)
+        {
+            CargarImagen(txtURLimagen.Text);
+        }
+
+        private void CargarImagen(string imagen)
+        {
+            try
+            {
+                pictureBoxAgrego.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pictureBoxAgrego.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
+            }
+        }
+
     }
 }

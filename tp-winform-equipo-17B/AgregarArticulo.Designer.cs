@@ -44,6 +44,10 @@ namespace tp_winform_equipo_17B
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lbImagen = new System.Windows.Forms.Label();
+            this.txtURLimagen = new System.Windows.Forms.TextBox();
+            this.pictureBoxAgrego = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAgrego)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -111,7 +115,7 @@ namespace tp_winform_equipo_17B
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(138, 229);
+            this.btnAgregar.Location = new System.Drawing.Point(143, 269);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 7;
@@ -124,28 +128,28 @@ namespace tp_winform_equipo_17B
             this.txtCodigo.Location = new System.Drawing.Point(203, 62);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigo.TabIndex = 8;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(203, 87);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 9;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(203, 111);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
-            this.txtDescripcion.TabIndex = 10;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(203, 192);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecio.TabIndex = 13;
+            this.txtPrecio.TabIndex = 5;
             // 
             // cbMarca
             // 
@@ -154,7 +158,7 @@ namespace tp_winform_equipo_17B
             this.cbMarca.Location = new System.Drawing.Point(203, 136);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(100, 21);
-            this.cbMarca.TabIndex = 14;
+            this.cbMarca.TabIndex = 3;
             // 
             // cbCategoria
             // 
@@ -163,24 +167,53 @@ namespace tp_winform_equipo_17B
             this.cbCategoria.Location = new System.Drawing.Point(203, 164);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(100, 21);
-            this.cbCategoria.TabIndex = 15;
+            this.cbCategoria.TabIndex = 4;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(271, 229);
+            this.btnCancelar.Location = new System.Drawing.Point(273, 269);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // lbImagen
+            // 
+            this.lbImagen.AutoSize = true;
+            this.lbImagen.Location = new System.Drawing.Point(99, 226);
+            this.lbImagen.Name = "lbImagen";
+            this.lbImagen.Size = new System.Drawing.Size(74, 13);
+            this.lbImagen.TabIndex = 17;
+            this.lbImagen.Text = "URL IMAGEN";
+            // 
+            // txtURLimagen
+            // 
+            this.txtURLimagen.Location = new System.Drawing.Point(203, 222);
+            this.txtURLimagen.Name = "txtURLimagen";
+            this.txtURLimagen.Size = new System.Drawing.Size(100, 20);
+            this.txtURLimagen.TabIndex = 6;
+            this.txtURLimagen.Leave += new System.EventHandler(this.txtURLimagen_Leave);
+            // 
+            // pictureBoxAgrego
+            // 
+            this.pictureBoxAgrego.Location = new System.Drawing.Point(387, 62);
+            this.pictureBoxAgrego.Name = "pictureBoxAgrego";
+            this.pictureBoxAgrego.Size = new System.Drawing.Size(198, 177);
+            this.pictureBoxAgrego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxAgrego.TabIndex = 19;
+            this.pictureBoxAgrego.TabStop = false;
             // 
             // AgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(487, 331);
+            this.ClientSize = new System.Drawing.Size(635, 331);
+            this.Controls.Add(this.pictureBoxAgrego);
+            this.Controls.Add(this.txtURLimagen);
+            this.Controls.Add(this.lbImagen);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbMarca);
@@ -197,12 +230,13 @@ namespace tp_winform_equipo_17B
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(503, 370);
-            this.MinimumSize = new System.Drawing.Size(503, 370);
+            this.MaximumSize = new System.Drawing.Size(651, 370);
+            this.MinimumSize = new System.Drawing.Size(651, 370);
             this.Name = "AgregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Artículo";
             this.Load += new System.EventHandler(this.AgregarArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAgrego)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +259,8 @@ namespace tp_winform_equipo_17B
         private System.Windows.Forms.ComboBox cbMarca;
         private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lbImagen;
+        private System.Windows.Forms.TextBox txtURLimagen;
+        private System.Windows.Forms.PictureBox pictureBoxAgrego;
     }
 }

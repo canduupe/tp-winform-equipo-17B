@@ -39,7 +39,6 @@
             this.txtFiltrar2 = new System.Windows.Forms.TextBox();
             this.lblFiltroCat = new System.Windows.Forms.Label();
             this.txtFiltrarCate = new System.Windows.Forms.TextBox();
-            this.btnModifi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgNegocio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArti)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +77,7 @@
             this.btnVolver.Location = new System.Drawing.Point(275, 349);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 4;
+            this.btnVolver.TabIndex = 5;
             this.btnVolver.Text = "VOLVER";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -88,7 +87,7 @@
             this.btEliminar.Location = new System.Drawing.Point(174, 349);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btEliminar.TabIndex = 5;
+            this.btEliminar.TabIndex = 4;
             this.btEliminar.Text = "ELIMINAR";
             this.btEliminar.UseVisualStyleBackColor = true;
             this.btEliminar.Click += new System.EventHandler(this.btEliminar_Click);
@@ -108,7 +107,7 @@
             this.txtFiltro.Location = new System.Drawing.Point(646, 50);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(104, 20);
-            this.txtFiltro.TabIndex = 7;
+            this.txtFiltro.TabIndex = 2;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // lblCodigoF
@@ -126,7 +125,7 @@
             this.txtFiltrar2.Location = new System.Drawing.Point(136, 51);
             this.txtFiltrar2.Name = "txtFiltrar2";
             this.txtFiltrar2.Size = new System.Drawing.Size(104, 20);
-            this.txtFiltrar2.TabIndex = 10;
+            this.txtFiltrar2.TabIndex = 0;
             this.txtFiltrar2.TextChanged += new System.EventHandler(this.txtFiltrar2_TextChanged);
             // 
             // lblFiltroCat
@@ -143,18 +142,8 @@
             this.txtFiltrarCate.Location = new System.Drawing.Point(403, 50);
             this.txtFiltrarCate.Name = "txtFiltrarCate";
             this.txtFiltrarCate.Size = new System.Drawing.Size(104, 20);
-            this.txtFiltrarCate.TabIndex = 12;
+            this.txtFiltrarCate.TabIndex = 1;
             this.txtFiltrarCate.TextChanged += new System.EventHandler(this.txtFiltrarCate_TextChanged);
-            // 
-            // btnModifi
-            // 
-            this.btnModifi.Location = new System.Drawing.Point(446, 364);
-            this.btnModifi.Name = "btnModifi";
-            this.btnModifi.Size = new System.Drawing.Size(75, 23);
-            this.btnModifi.TabIndex = 13;
-            this.btnModifi.Text = "MODIFICAR";
-            this.btnModifi.UseVisualStyleBackColor = true;
-            this.btnModifi.Click += new System.EventHandler(this.btnModifi_Click);
             // 
             // ListarArtículos
             // 
@@ -162,7 +151,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1049, 452);
-            this.Controls.Add(this.btnModifi);
             this.Controls.Add(this.txtFiltrarCate);
             this.Controls.Add(this.lblFiltroCat);
             this.Controls.Add(this.txtFiltrar2);
@@ -202,6 +190,5 @@
         private System.Windows.Forms.TextBox txtFiltrar2;
         private System.Windows.Forms.Label lblFiltroCat;
         private System.Windows.Forms.TextBox txtFiltrarCate;
-        private System.Windows.Forms.Button btnModifi;
     }
 }
