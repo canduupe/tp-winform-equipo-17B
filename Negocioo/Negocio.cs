@@ -38,8 +38,7 @@ namespace Negocioo
                         NombreArticulo = (string)datos.Lector["Nombre"],
                         DescripcionArticulo = (string)datos.Lector["Descripcion"],
                         PrecioArticulo = (decimal)datos.Lector["Precio"],
-                        //aux.Marca.MarcaID = (int)datos.Lector["IdMarca"],
-                        //aux.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"],
+                        
                         Marca = new Marca
                         {
                             Descripcion = (string)datos.Lector["Marca"]

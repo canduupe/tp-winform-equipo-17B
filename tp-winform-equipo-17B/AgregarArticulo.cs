@@ -16,16 +16,15 @@ namespace tp_winform_equipo_17B
 {
     public partial class AgregarArticulo : Form
     {
-        private Articulo arti = null;
+        public Articulo arti;
         public AgregarArticulo()
         {
             InitializeComponent();
-            arti = new Articulo();  
+            Articulo arti = new Articulo();
         }
         public AgregarArticulo(Articulo articulo)
         {
             InitializeComponent();
-            arti = articulo;
             Text = "Modificar Articulo";
         }
 
@@ -45,8 +44,8 @@ namespace tp_winform_equipo_17B
                 cbCategoria.ValueMember = "IdCategoria";
                 cbCategoria.DisplayMember = "Descripcion";
 
-                if (arti != null)
-                {
+                
+               
                     txtCodigo.Text = arti.CodArticulo;
                     txtNombre.Text = arti.NombreArticulo;
                     txtDescripcion.Text = arti.DescripcionArticulo;
@@ -56,7 +55,7 @@ namespace tp_winform_equipo_17B
                     cbMarca.SelectedValue = arti.Marca.MarcaID;
                     cbCategoria.SelectedValue = arti.Categoria.IdCategoria;
 
-                }
+                
             }
             catch (Exception ex)
             {
@@ -68,12 +67,11 @@ namespace tp_winform_equipo_17B
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
-           // Articulo arti = new Articulo();
+           Articulo arti = new Articulo();
 
             try
             {
-                if(arti==null) 
-                    arti = new Articulo();
+                
 
                 arti.CodArticulo = txtCodigo.Text;
                 arti.NombreArticulo = txtNombre.Text;
@@ -94,16 +92,10 @@ namespace tp_winform_equipo_17B
                     return;
                 }
 
-                if(arti.Id != 0)
-                {
-                negocio.modificar(arti);
-                MessageBox.Show("Modificado Exitosamente");
-                }
-                else
-                {
+             
                 negocio.agregar(arti);
                 MessageBox.Show("Artículo agregado correctamente");
-                }
+                
 
 
             }
