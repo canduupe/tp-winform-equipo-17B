@@ -16,7 +16,7 @@ namespace tp_winform_equipo_17B
 {
     public partial class AgregarArticulo : Form
     {
-        public Articulo arti ;
+        private Articulo arti = null;
         public AgregarArticulo()
         {
             InitializeComponent();
@@ -38,21 +38,25 @@ namespace tp_winform_equipo_17B
             try
             {
                 cbMarca.DataSource = mar.listar();
-                cbMarca.DisplayMember = "Descripcion";  
                 cbMarca.ValueMember = "MarcaID";        
+                cbMarca.DisplayMember = "Descripcion";  
 
                 cbCategoria.DataSource = cat.listar();
-                cbCategoria.DisplayMember = "Descripcion";
                 cbCategoria.ValueMember = "IdCategoria";
+                cbCategoria.DisplayMember = "Descripcion";
 
-                             
+                if (arti != null)
+                {
                     txtCodigo.Text = arti.CodArticulo;
                     txtNombre.Text = arti.NombreArticulo;
                     txtDescripcion.Text = arti.DescripcionArticulo;
                     cbMarca.SelectedValue = arti.IdMarca;
                     cbCategoria.SelectedValue = arti.IdCategoria;
                     txtPrecio.Text = arti.PrecioArticulo.ToString();
-                
+                    cbMarca.SelectedValue = arti.Marca.MarcaID;
+                    cbCategoria.SelectedValue = arti.Categoria.IdCategoria;
+
+                }
             }
             catch (Exception ex)
             {
@@ -64,10 +68,13 @@ namespace tp_winform_equipo_17B
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
-            Articulo arti = new Articulo();
+           // Articulo arti = new Articulo();
 
             try
             {
+                if(arti==null) 
+                    arti = new Articulo();
+
                 arti.CodArticulo = txtCodigo.Text;
                 arti.NombreArticulo = txtNombre.Text;
                 arti.DescripcionArticulo = txtDescripcion.Text;
@@ -87,10 +94,17 @@ namespace tp_winform_equipo_17B
                     return;
                 }
 
+                if(arti.Id != 0)
+                {
+                negocio.modificar(arti);
+                MessageBox.Show("Modificado Exitosamente");
+                }
+                else
+                {
                 negocio.agregar(arti);
                 MessageBox.Show("Artículo agregado correctamente");
+                }
 
-                
 
             }
             catch (Exception ex)

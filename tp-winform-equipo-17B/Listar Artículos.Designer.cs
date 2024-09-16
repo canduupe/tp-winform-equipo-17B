@@ -39,6 +39,7 @@
             this.txtFiltrar2 = new System.Windows.Forms.TextBox();
             this.lblFiltroCat = new System.Windows.Forms.Label();
             this.txtFiltrarCate = new System.Windows.Forms.TextBox();
+            this.btnModifi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgNegocio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArti)).BeginInit();
             this.SuspendLayout();
@@ -145,12 +146,23 @@
             this.txtFiltrarCate.TabIndex = 12;
             this.txtFiltrarCate.TextChanged += new System.EventHandler(this.txtFiltrarCate_TextChanged);
             // 
+            // btnModifi
+            // 
+            this.btnModifi.Location = new System.Drawing.Point(446, 364);
+            this.btnModifi.Name = "btnModifi";
+            this.btnModifi.Size = new System.Drawing.Size(75, 23);
+            this.btnModifi.TabIndex = 13;
+            this.btnModifi.Text = "MODIFICAR";
+            this.btnModifi.UseVisualStyleBackColor = true;
+            this.btnModifi.Click += new System.EventHandler(this.btnModifi_Click);
+            // 
             // ListarArtículos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(1049, 452);
+            this.Controls.Add(this.btnModifi);
             this.Controls.Add(this.txtFiltrarCate);
             this.Controls.Add(this.lblFiltroCat);
             this.Controls.Add(this.txtFiltrar2);
@@ -190,5 +202,6 @@
         private System.Windows.Forms.TextBox txtFiltrar2;
         private System.Windows.Forms.Label lblFiltroCat;
         private System.Windows.Forms.TextBox txtFiltrarCate;
+        private System.Windows.Forms.Button btnModifi;
     }
 }

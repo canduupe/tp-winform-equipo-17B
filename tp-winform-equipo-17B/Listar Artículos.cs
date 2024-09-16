@@ -12,6 +12,7 @@ using Dominio;
 using Negocioo;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace tp_winform_equipo_17B
 {
     public partial class ListarArtículos : Form
@@ -155,7 +156,36 @@ namespace tp_winform_equipo_17B
 
         }
 
-        
+        private void btnModifi_Click(object sender, EventArgs e)
+        {
+            Articulo artiSeleccionado;
+            artiSeleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
+            
+            AgregarArticulo modificarArti = new AgregarArticulo(artiSeleccionado);
+            modificarArti.ShowDialog();
+            cargar();
+
+        }
+
+        private void cargar()
+        {
+            Negocio negocio = new Negocio();
+            try
+            {
+            listaArticulos = negocio.listar();
+            dgNegocio.DataSource = listaArticulos;
+            pictureBoxArti.Load(listaArticulos[0].Imagen.URlImagen);
+            ocultarColumnas();
+
+            }
+            catch (Exception ex )
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+
     }
    
 }

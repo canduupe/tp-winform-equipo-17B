@@ -21,7 +21,7 @@ namespace Negocioo
                 datos.setearConsulta(@"
             SELECT A.Id, Codigo, Nombre, A.Descripcion, Precio, 
                    M.Descripcion AS Marca, C.Descripcion AS Categoria, 
-                   I.ImagenUrl
+                   I.ImagenUrl, A.IdMarca, A.IdCategoria
             FROM ARTICULOS A
             INNER JOIN MARCAS M ON A.IdMarca = M.Id
             INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id
@@ -38,9 +38,12 @@ namespace Negocioo
                         NombreArticulo = (string)datos.Lector["Nombre"],
                         DescripcionArticulo = (string)datos.Lector["Descripcion"],
                         PrecioArticulo = (decimal)datos.Lector["Precio"],
+                        //aux.Marca.MarcaID = (int)datos.Lector["IdMarca"],
+                        //aux.Categoria.IdCategoria = (int)datos.Lector["IdCategoria"],
                         Marca = new Marca
                         {
                             Descripcion = (string)datos.Lector["Marca"]
+                            
                         },
                         Categoria = new Categoria
                         {
@@ -101,6 +104,7 @@ namespace Negocioo
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
 
+            AccesoDatos datos = new AccesoDatos(); 
 
             conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
 
@@ -112,13 +116,13 @@ namespace Negocioo
 
             try
             {
-                comando.Parameters.AddWithValue("@cod",articulo.CodArticulo);
-                comando.Parameters.AddWithValue("@nombre",articulo.NombreArticulo);
-                comando.Parameters.AddWithValue("@desc",articulo.DescripcionArticulo);
-                comando.Parameters.AddWithValue("@IdMar",articulo.Marca.MarcaID);
-                comando.Parameters.AddWithValue("@Idcate",articulo.Categoria.IdCategoria);
-                comando.Parameters.AddWithValue("@Prec",articulo.PrecioArticulo); 
-                comando.Parameters.AddWithValue("@ID",articulo.Id);
+                datos.setearParametro("@cod",articulo.CodArticulo);
+                datos.setearParametro("@nombre",articulo.NombreArticulo);
+                datos.setearParametro("@desc",articulo.DescripcionArticulo);
+                datos.setearParametro("@IdMar",articulo.Marca.MarcaID);
+                datos.setearParametro("@Idcate",articulo.Categoria.IdCategoria);
+                datos.setearParametro("@Prec",articulo.PrecioArticulo); 
+                datos.setearParametro("@ID",articulo.Id);
 
                 conexion.Open();
                 comando.ExecuteNonQuery();
