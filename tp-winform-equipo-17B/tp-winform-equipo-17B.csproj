@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>tp_winform_equipo_17B</RootNamespace>
     <AssemblyName>tp-winform-equipo-17B</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>

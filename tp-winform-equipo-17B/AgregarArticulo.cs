@@ -31,9 +31,12 @@ namespace tp_winform_equipo_17B
 
         private void AgregarArticulo_Load(object sender, EventArgs e)
         {
+           
+            
             MarcaNegocio mar = new MarcaNegocio();
             CategoriaNegocio cat = new CategoriaNegocio();
-
+           //cambio para que no largue excepcion
+            Articulo arti = new Articulo();
             try
             {
                 cbMarca.DataSource = mar.listar();
@@ -52,8 +55,8 @@ namespace tp_winform_equipo_17B
                     cbMarca.SelectedValue = arti.IdMarca;
                     cbCategoria.SelectedValue = arti.IdCategoria;
                     txtPrecio.Text = arti.PrecioArticulo.ToString();
-                    cbMarca.SelectedValue = arti.Marca.MarcaID;
-                    cbCategoria.SelectedValue = arti.Categoria.IdCategoria;
+                    //cbMarca.SelectedValue = arti.Marca.MarcaID;
+                    //cbCategoria.SelectedValue = arti.Categoria.IdCategoria;
 
                 
             }
