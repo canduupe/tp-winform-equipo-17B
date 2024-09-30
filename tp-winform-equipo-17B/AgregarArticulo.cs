@@ -82,7 +82,15 @@ namespace tp_winform_equipo_17B
                 decimal precio;
                 if (decimal.TryParse(txtPrecio.Text, out precio))
                 {
-                    arti.PrecioArticulo = precio;
+                    if (precio > 0)
+                    {
+                        arti.PrecioArticulo = precio;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El PRECIO es NEGATIVO, Porfavor cargue un precio de nuevo");
+                        return;
+                    }
                 }
                 else
                 {
@@ -93,16 +101,14 @@ namespace tp_winform_equipo_17B
              
                 negocio.agregar(arti);
                 MessageBox.Show("Artículo agregado correctamente");
+                Close();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            finally
-            {
-                Close();
-            }
+           
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
