@@ -83,6 +83,8 @@ namespace tp_winform_equipo_17B
                 {
                     seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
                     negocio.eliminar(seleccionado.Id);
+
+                    negocio.listar();
                 }
 
             }
