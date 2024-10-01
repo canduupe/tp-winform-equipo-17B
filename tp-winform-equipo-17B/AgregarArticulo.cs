@@ -33,7 +33,7 @@ namespace tp_winform_equipo_17B
         }
 
         private List<Imagen> imagenes = new List<Imagen>();
-        private int imagenActual = 0;
+
         private void AgregarArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio mar = new MarcaNegocio();
@@ -59,12 +59,9 @@ namespace tp_winform_equipo_17B
                     txtPrecio.Text = articulo.PrecioArticulo.ToString();
                     txtURLimagen.Text = articulo.Imagen.URlImagen;
 
-                    imagenes = articulo.Imagenes;
+           
 
-                    if (imagenes.Count > 0)
-                    {
-                        CargarImagen(imagenes[imagenActual].URlImagen);
-                    }
+                  
                 }
             }
             catch (Exception ex)
@@ -155,23 +152,6 @@ namespace tp_winform_equipo_17B
             }
         }
 
-        private void siguiente_Click(object sender, EventArgs e)
-        {
-            if (imagenes.Count > 0)
-            {
-                imagenActual = (imagenActual + 1) % imagenes.Count;
-                CargarImagen(imagenes[imagenActual].URlImagen);
-            }
-        }
-
-        private void anterior_Click(object sender, EventArgs e)
-        {
-            if (imagenes.Count > 0)
-            {
-                imagenActual = (imagenActual - 1 + imagenes.Count) % imagenes.Count;
-                CargarImagen(imagenes[imagenActual].URlImagen);
-            }
-        }
     }
 }
 

@@ -38,23 +38,12 @@ namespace tp_winform_equipo_17B
             if (dgNegocio.CurrentRow != null)
             {
                 Articulo seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
-
-                if (seleccionado.Imagenes != null && seleccionado.Imagenes.Count > 0)
-                {
-                    imagenes = seleccionado.Imagenes; 
-                    imagenActual = 0; 
-                    CargarImagen(imagenes[imagenActual].URlImagen); 
-                }
-                else
-                {
-                 
-                    //pictureBoxArti.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
-                }
+                 CargarImagen(seleccionado.Imagen.URlImagen); 
+                
             }
         }
 
         private List<Imagen> imagenes; 
-       private int imagenActual = 0; 
 
         private void CargarImagen(string imagen)
         {
@@ -72,6 +61,8 @@ namespace tp_winform_equipo_17B
             dgNegocio.Columns["IdMarca"].Visible = false;
             dgNegocio.Columns["IdCategoria"].Visible = false;
             dgNegocio.Columns["Imagen"].Visible = false;
+            dgNegocio.Columns["DescripcionMarca"].Visible = false;
+            dgNegocio.Columns["DescripcionCategoria"].Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -199,24 +190,7 @@ namespace tp_winform_equipo_17B
             }
 
         }
-        //botones para CARROUSEL
-        private void btnSiguiente_Click(object sender, EventArgs e)
-        {
-            if (imagenes != null && imagenes.Count > 0)
-            {
-                imagenActual = (imagenActual + 1) % imagenes.Count; 
-                CargarImagen(imagenes[imagenActual].URlImagen);
-            }
-        }
-
-        private void btnAnterior_Click(object sender, EventArgs e)
-        {
-            if (imagenes != null && imagenes.Count > 0)
-            {
-                imagenActual = (imagenActual - 1 + imagenes.Count) % imagenes.Count; 
-                CargarImagen(imagenes[imagenActual].URlImagen); 
-            }
-        }
+       
     }
    
 }

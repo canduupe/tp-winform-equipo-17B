@@ -99,7 +99,7 @@ namespace tp_winform_equipo_17B
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(100, 177);
+            this.label7.Location = new System.Drawing.Point(100, 203);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 6;
@@ -138,7 +138,7 @@ namespace tp_winform_equipo_17B
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(204, 170);
+            this.txtPrecio.Location = new System.Drawing.Point(204, 196);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 5;
@@ -174,7 +174,7 @@ namespace tp_winform_equipo_17B
             // lbImagen
             // 
             this.lbImagen.AutoSize = true;
-            this.lbImagen.Location = new System.Drawing.Point(100, 204);
+            this.lbImagen.Location = new System.Drawing.Point(100, 177);
             this.lbImagen.Name = "lbImagen";
             this.lbImagen.Size = new System.Drawing.Size(74, 13);
             this.lbImagen.TabIndex = 17;
@@ -182,7 +182,7 @@ namespace tp_winform_equipo_17B
             // 
             // txtURLimagen
             // 
-            this.txtURLimagen.Location = new System.Drawing.Point(204, 200);
+            this.txtURLimagen.Location = new System.Drawing.Point(204, 170);
             this.txtURLimagen.Name = "txtURLimagen";
             this.txtURLimagen.Size = new System.Drawing.Size(100, 20);
             this.txtURLimagen.TabIndex = 6;
@@ -193,7 +193,7 @@ namespace tp_winform_equipo_17B
             this.pictureBoxAgrego.Location = new System.Drawing.Point(387, 62);
             this.pictureBoxAgrego.Name = "pictureBoxAgrego";
             this.pictureBoxAgrego.Size = new System.Drawing.Size(198, 177);
-            this.pictureBoxAgrego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxAgrego.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAgrego.TabIndex = 19;
             this.pictureBoxAgrego.TabStop = false;
             // 
@@ -205,7 +205,7 @@ namespace tp_winform_equipo_17B
             this.anterior.TabIndex = 22;
             this.anterior.Text = "🡰";
             this.anterior.UseVisualStyleBackColor = true;
-            this.anterior.Click += new System.EventHandler(this.anterior_Click);
+     
             // 
             // siguiente
             // 
@@ -215,7 +215,7 @@ namespace tp_winform_equipo_17B
             this.siguiente.TabIndex = 23;
             this.siguiente.Text = "🡲";
             this.siguiente.UseVisualStyleBackColor = true;
-            this.siguiente.Click += new System.EventHandler(this.siguiente_Click);
+
             // 
             // AgregarArticulo
             // 

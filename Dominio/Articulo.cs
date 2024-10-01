@@ -19,7 +19,6 @@ namespace Dominio
         public int IdMarca { get; set; } 
         public int IdCategoria { get; set; } 
         public Imagen Imagen { get; set; }
-        public Imagen Imagen2 { get; set; }
         public List<Imagen> Imagenes { get; set; } = new List<Imagen>();
         public string DescripcionMarca { get; set; }  
         public string DescripcionCategoria { get; set; }

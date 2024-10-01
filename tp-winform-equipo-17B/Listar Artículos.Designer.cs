@@ -155,7 +155,7 @@
             this.btnAnterior.TabIndex = 12;
             this.btnAnterior.Text = "ANTERIOR";
             this.btnAnterior.UseVisualStyleBackColor = true;
-            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+    
             // 
             // btnSiguiente
             // 
@@ -165,7 +165,7 @@
             this.btnSiguiente.TabIndex = 13;
             this.btnSiguiente.Text = "SIGUIENTE";
             this.btnSiguiente.UseVisualStyleBackColor = true;
-            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+
             // 
             // ListarArtículos
             // 
