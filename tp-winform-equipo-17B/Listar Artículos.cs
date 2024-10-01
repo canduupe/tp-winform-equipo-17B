@@ -64,6 +64,7 @@ namespace tp_winform_equipo_17B
 
             AgregarArticulo ventanaModificar = new AgregarArticulo (articuloSeleccionado);
             ventanaModificar.ShowDialog();
+            cargar();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -83,10 +84,8 @@ namespace tp_winform_equipo_17B
                 {
                     seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
                     negocio.eliminar(seleccionado.Id);
-
-                    negocio.listar();
+                    cargar();
                 }
-
             }
             catch (Exception ex)
             {
@@ -166,7 +165,6 @@ namespace tp_winform_equipo_17B
             AgregarArticulo modificarArti = new AgregarArticulo(artiSeleccionado);
             modificarArti.ShowDialog();
             cargar();
-
         }
 
         private void cargar()

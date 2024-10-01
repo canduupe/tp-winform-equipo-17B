@@ -18,6 +18,9 @@ namespace tp_winform_equipo_17B
     public partial class AgregarArticulo : Form
     {
         public Articulo arti;
+
+        private Articulo articulo = null;
+
         public AgregarArticulo()
         {
             InitializeComponent();
@@ -27,36 +30,40 @@ namespace tp_winform_equipo_17B
         {
             InitializeComponent();
             Text = "Modificar Articulo";
+            this.articulo = articulo;
         }
 
 
         private void AgregarArticulo_Load(object sender, EventArgs e)
         {
            
-            
             MarcaNegocio mar = new MarcaNegocio();
             CategoriaNegocio cat = new CategoriaNegocio();
 
-            Articulo arti = new Articulo();
             try
             {
-                cbMarca.DataSource = mar.listar();
-                cbMarca.ValueMember = "MarcaID";        
-                cbMarca.DisplayMember = "Descripcion";  
+                
+               cbMarca.DataSource = mar.listar();
+               cbMarca.ValueMember = "MarcaID";        
+               cbMarca.DisplayMember = "Descripcion";  
 
-                cbCategoria.DataSource = cat.listar();
-                cbCategoria.ValueMember = "IdCategoria";
-                cbCategoria.DisplayMember = "Descripcion";
+               cbCategoria.DataSource = cat.listar();
+               cbCategoria.ValueMember = "IdCategoria";
+               cbCategoria.DisplayMember = "Descripcion";
 
                 
-               
-                    txtCodigo.Text = arti.CodArticulo;
-                    txtNombre.Text = arti.NombreArticulo;
-                    txtDescripcion.Text = arti.DescripcionArticulo;
-                    cbMarca.SelectedValue = arti.IdMarca;
-                    cbCategoria.SelectedValue = arti.IdCategoria;
-                    txtPrecio.Text = arti.PrecioArticulo.ToString();
-                
+                if(articulo!= null)
+                {
+                    txtCodigo.Text = articulo.CodArticulo;
+                    txtNombre.Text = articulo.NombreArticulo;
+                    txtDescripcion.Text = articulo.DescripcionArticulo;
+                    cbMarca.SelectedValue = articulo.Marca.MarcaID;
+                    cbCategoria.SelectedValue = articulo.Categoria.IdCategoria;
+                    txtPrecio.Text = articulo.PrecioArticulo.ToString();
+                    CargarImagen(articulo.Imagen.URlImagen);
+                   
+                }
+
             }
             catch (Exception ex)
             {

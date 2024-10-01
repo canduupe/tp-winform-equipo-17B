@@ -29,7 +29,6 @@ namespace tp_winform_equipo_17B
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,15 +48,6 @@ namespace tp_winform_equipo_17B
             this.pictureBoxAgrego = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAgrego)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "AGREGAR ARTICULO";
             // 
             // label2
             // 
@@ -228,7 +218,6 @@ namespace tp_winform_equipo_17B
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(651, 370);
             this.MinimumSize = new System.Drawing.Size(651, 370);
@@ -243,8 +232,6 @@ namespace tp_winform_equipo_17B
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

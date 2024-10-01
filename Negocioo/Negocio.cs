@@ -41,11 +41,13 @@ namespace Negocioo
                         
                         Marca = new Marca
                         {
+                            MarcaID = (int)datos.Lector["IdMarca"],
                             Descripcion = (string)datos.Lector["Marca"]
-                            
+         
                         },
                         Categoria = new Categoria
                         {
+                            IdCategoria = (int)datos.Lector["IdCategoria"],
                             Descripcion = (string)datos.Lector["Categoria"]
                         },
                         Imagen = new Imagen
@@ -97,12 +99,10 @@ namespace Negocioo
             }
         }
 
-
         public void modificar(Articulo articulo)
         {
             SqlConnection conexion = new SqlConnection();
             SqlCommand comando = new SqlCommand();
-
             AccesoDatos datos = new AccesoDatos(); 
 
             conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
@@ -111,7 +111,6 @@ namespace Negocioo
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = "update ARTICULOS set Codigo = @cod, Nombre = @nombre, Descripcion = @desc, IdMarca = @IdMar, IdCategoria = @Idcate, Precio = @Prec where Id = @ID";
             comando.Connection = conexion;
-
 
             try
             {
@@ -135,10 +134,7 @@ namespace Negocioo
             {
                 conexion.Close();
             }
-
-
         }
-
 
         public void eliminar(int id)
         {
@@ -153,11 +149,7 @@ namespace Negocioo
             {
                 throw ex;
             }
-
         }
-
     }
-    
-
 }
 
