@@ -17,14 +17,13 @@ namespace tp_winform_equipo_17B
 {
     public partial class AgregarArticulo : Form
     {
-        public Articulo arti;
 
         private Articulo articulo = null;
 
         public AgregarArticulo()
         {
             InitializeComponent();
-            Articulo arti = new Articulo();
+            Articulo articulo = new Articulo();
         }
         public AgregarArticulo(Articulo articulo)
         {
@@ -58,11 +57,10 @@ namespace tp_winform_equipo_17B
                     cbMarca.SelectedValue = articulo.Marca.MarcaID;
                     cbCategoria.SelectedValue = articulo.Categoria.IdCategoria;
                     txtPrecio.Text = articulo.PrecioArticulo.ToString();
+                    txtURLimagen.Text = articulo.Imagen.URlImagen;
 
-                    
                     imagenes = articulo.Imagenes;
 
-                    
                     if (imagenes.Count > 0)
                     {
                         CargarImagen(imagenes[imagenActual].URlImagen);
@@ -79,23 +77,25 @@ namespace tp_winform_equipo_17B
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
-            Articulo arti = new Articulo();
 
             try
             {
-                arti.CodArticulo = txtCodigo.Text;
-                arti.NombreArticulo = txtNombre.Text;
-                arti.DescripcionArticulo = txtDescripcion.Text;
+                if (articulo == null)
+                    articulo = new Articulo();
 
-                arti.IdMarca = ((Marca)cbMarca.SelectedItem).MarcaID;
-                arti.IdCategoria = ((Categoria)cbCategoria.SelectedItem).IdCategoria;
+                articulo.CodArticulo = txtCodigo.Text;
+                articulo.NombreArticulo = txtNombre.Text;
+                articulo.DescripcionArticulo = txtDescripcion.Text;
+
+                articulo.IdMarca = ((Marca)cbMarca.SelectedItem).MarcaID;
+                articulo.IdCategoria = ((Categoria)cbCategoria.SelectedItem).IdCategoria;
 
                 decimal precio;
                 if (decimal.TryParse(txtPrecio.Text, out precio))
                 {
                     if (precio > 0)
                     {
-                        arti.PrecioArticulo = precio;
+                        articulo.PrecioArticulo = precio;
                     }
                     else
                     {
@@ -109,12 +109,21 @@ namespace tp_winform_equipo_17B
                     return;
                 }
 
-                
-                arti.Imagenes.Add(new Imagen { URlImagen = txtURLimagen.Text }); 
-                arti.Imagenes.Add(new Imagen { URlImagen = txtURLimagen2.Text }); 
 
-                negocio.agregar(arti);
-                MessageBox.Show("Artículo agregado correctamente");
+                articulo.Imagenes.Add(new Imagen { URlImagen = txtURLimagen.Text });
+
+                if (articulo.Id != 0)
+                {
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Artículo modificado correctamente");
+
+                }
+                else
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Artículo agregado correctamente");
+                }
+
                 Close();
             }
             catch (Exception ex)
@@ -122,7 +131,7 @@ namespace tp_winform_equipo_17B
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-    
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -150,7 +159,7 @@ namespace tp_winform_equipo_17B
         {
             if (imagenes.Count > 0)
             {
-                imagenActual = (imagenActual + 1) % imagenes.Count; 
+                imagenActual = (imagenActual + 1) % imagenes.Count;
                 CargarImagen(imagenes[imagenActual].URlImagen);
             }
         }
@@ -159,9 +168,10 @@ namespace tp_winform_equipo_17B
         {
             if (imagenes.Count > 0)
             {
-                imagenActual = (imagenActual - 1 + imagenes.Count) % imagenes.Count; 
+                imagenActual = (imagenActual - 1 + imagenes.Count) % imagenes.Count;
                 CargarImagen(imagenes[imagenActual].URlImagen);
             }
         }
     }
 }
+

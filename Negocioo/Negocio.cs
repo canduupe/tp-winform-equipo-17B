@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Dominio;
+using System.Security.Cryptography;
 
 namespace Negocioo
 {
@@ -17,7 +18,7 @@ namespace Negocioo
 
             try
             {
-                //NO TOQUEN LA CONSULTA
+      
                 datos.setearConsulta(@"
             SELECT A.Id, Codigo, Nombre, A.Descripcion, Precio, 
                    M.Descripcion AS Marca, C.Descripcion AS Categoria, 
@@ -101,19 +102,12 @@ namespace Negocioo
 
         public void modificar(Articulo articulo)
         {
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
             AccesoDatos datos = new AccesoDatos(); 
-
-            conexion.ConnectionString = "server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true;";
-
-
-            comando.CommandType = System.Data.CommandType.Text;
-            comando.CommandText = "update ARTICULOS set Codigo = @cod, Nombre = @nombre, Descripcion = @desc, IdMarca = @IdMar, IdCategoria = @Idcate, Precio = @Prec where Id = @ID";
-            comando.Connection = conexion;
 
             try
             {
+                datos.setearConsulta("update ARTICULOS set Codigo = @cod, Nombre = @nombre, Descripcion = @desc, IdMarca = @IdMar, IdCategoria = @Idcate, Precio = @Prec where Id = @ID");
+
                 datos.setearParametro("@cod",articulo.CodArticulo);
                 datos.setearParametro("@nombre",articulo.NombreArticulo);
                 datos.setearParametro("@desc",articulo.DescripcionArticulo);
@@ -122,8 +116,7 @@ namespace Negocioo
                 datos.setearParametro("@Prec",articulo.PrecioArticulo); 
                 datos.setearParametro("@ID",articulo.Id);
 
-                conexion.Open();
-                comando.ExecuteNonQuery();
+                datos.realizarAccion();
             }
             catch (Exception ex)
             {
@@ -132,7 +125,7 @@ namespace Negocioo
             }
             finally
             {
-                conexion.Close();
+                datos.cerrarConexion();
             }
         }
 

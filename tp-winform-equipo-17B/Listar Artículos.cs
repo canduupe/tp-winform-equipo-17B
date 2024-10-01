@@ -39,7 +39,6 @@ namespace tp_winform_equipo_17B
             {
                 Articulo seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
 
-             
                 if (seleccionado.Imagenes != null && seleccionado.Imagenes.Count > 0)
                 {
                     imagenes = seleccionado.Imagenes; 
@@ -49,7 +48,7 @@ namespace tp_winform_equipo_17B
                 else
                 {
                  
-                    pictureBoxArti.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
+                    //pictureBoxArti.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
                 }
             }
         }
@@ -82,7 +81,7 @@ namespace tp_winform_equipo_17B
 
             AgregarArticulo ventanaModificar = new AgregarArticulo (articuloSeleccionado);
             ventanaModificar.ShowDialog();
-            cargar();
+            cargar();           
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -110,9 +109,6 @@ namespace tp_winform_equipo_17B
                 MessageBox.Show(ex.ToString());
             }
         }
-
-     
-       
 
         private void txtFiltrar2_TextChanged(object sender, EventArgs e)
         {

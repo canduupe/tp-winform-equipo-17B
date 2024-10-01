@@ -46,8 +46,6 @@ namespace tp_winform_equipo_17B
             this.lbImagen = new System.Windows.Forms.Label();
             this.txtURLimagen = new System.Windows.Forms.TextBox();
             this.pictureBoxAgrego = new System.Windows.Forms.PictureBox();
-            this.txtURLimagen2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.anterior = new System.Windows.Forms.Button();
             this.siguiente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAgrego)).BeginInit();
@@ -199,22 +197,6 @@ namespace tp_winform_equipo_17B
             this.pictureBoxAgrego.TabIndex = 19;
             this.pictureBoxAgrego.TabStop = false;
             // 
-            // txtURLimagen2
-            // 
-            this.txtURLimagen2.Location = new System.Drawing.Point(204, 227);
-            this.txtURLimagen2.Name = "txtURLimagen2";
-            this.txtURLimagen2.Size = new System.Drawing.Size(100, 20);
-            this.txtURLimagen2.TabIndex = 20;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(103, 233);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "URL IMAGEN";
-            // 
             // anterior
             // 
             this.anterior.Location = new System.Drawing.Point(387, 258);
@@ -243,8 +225,6 @@ namespace tp_winform_equipo_17B
             this.ClientSize = new System.Drawing.Size(635, 331);
             this.Controls.Add(this.siguiente);
             this.Controls.Add(this.anterior);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtURLimagen2);
             this.Controls.Add(this.pictureBoxAgrego);
             this.Controls.Add(this.txtURLimagen);
             this.Controls.Add(this.lbImagen);
@@ -293,8 +273,6 @@ namespace tp_winform_equipo_17B
         private System.Windows.Forms.Label lbImagen;
         private System.Windows.Forms.TextBox txtURLimagen;
         private System.Windows.Forms.PictureBox pictureBoxAgrego;
-        private System.Windows.Forms.TextBox txtURLimagen2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button anterior;
         private System.Windows.Forms.Button siguiente;
     }
