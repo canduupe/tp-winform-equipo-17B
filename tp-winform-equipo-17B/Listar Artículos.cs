@@ -35,20 +35,38 @@ namespace tp_winform_equipo_17B
 
         private void dgNegocio_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
-            CargarImagen(seleccionado.Imagen.URlImagen);
+            if (dgNegocio.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgNegocio.CurrentRow.DataBoundItem;
+
+             
+                if (seleccionado.Imagenes != null && seleccionado.Imagenes.Count > 0)
+                {
+                    imagenes = seleccionado.Imagenes; 
+                    imagenActual = 0; 
+                    CargarImagen(imagenes[imagenActual].URlImagen); 
+                }
+                else
+                {
+                 
+                    pictureBoxArti.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
+                }
+            }
         }
 
-        private void CargarImagen (string imagen)
-         {
-        try
+        private List<Imagen> imagenes; 
+       private int imagenActual = 0; 
+
+        private void CargarImagen(string imagen)
         {
-            pictureBoxArti.Load(imagen);
-        }
-        catch (Exception ex)
-        {
+            try
+            {
+                pictureBoxArti.Load(imagen);
+            }
+            catch (Exception ex)
+            {
                 pictureBoxArti.Load("https://uning.es/wp-content/uploads/2016/08/ef3-placeholder-image.jpg");
-        }
+            }
         }
         private void ocultarColumnas()
         {
@@ -185,7 +203,24 @@ namespace tp_winform_equipo_17B
             }
 
         }
+        //botones para CARROUSEL
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if (imagenes != null && imagenes.Count > 0)
+            {
+                imagenActual = (imagenActual + 1) % imagenes.Count; 
+                CargarImagen(imagenes[imagenActual].URlImagen);
+            }
+        }
 
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if (imagenes != null && imagenes.Count > 0)
+            {
+                imagenActual = (imagenActual - 1 + imagenes.Count) % imagenes.Count; 
+                CargarImagen(imagenes[imagenActual].URlImagen); 
+            }
+        }
     }
    
 }

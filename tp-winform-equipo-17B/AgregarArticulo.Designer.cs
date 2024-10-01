@@ -46,13 +46,17 @@ namespace tp_winform_equipo_17B
             this.lbImagen = new System.Windows.Forms.Label();
             this.txtURLimagen = new System.Windows.Forms.TextBox();
             this.pictureBoxAgrego = new System.Windows.Forms.PictureBox();
+            this.txtURLimagen2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.anterior = new System.Windows.Forms.Button();
+            this.siguiente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAgrego)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(99, 65);
+            this.label2.Location = new System.Drawing.Point(100, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 1;
@@ -61,7 +65,7 @@ namespace tp_winform_equipo_17B
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(99, 90);
+            this.label3.Location = new System.Drawing.Point(100, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 2;
@@ -70,7 +74,7 @@ namespace tp_winform_equipo_17B
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(99, 119);
+            this.label4.Location = new System.Drawing.Point(100, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 13);
             this.label4.TabIndex = 3;
@@ -79,7 +83,7 @@ namespace tp_winform_equipo_17B
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(99, 145);
+            this.label5.Location = new System.Drawing.Point(100, 123);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 4;
@@ -88,7 +92,7 @@ namespace tp_winform_equipo_17B
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(99, 173);
+            this.label6.Location = new System.Drawing.Point(100, 151);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 5;
@@ -97,7 +101,7 @@ namespace tp_winform_equipo_17B
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(99, 199);
+            this.label7.Location = new System.Drawing.Point(100, 177);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 6;
@@ -115,28 +119,28 @@ namespace tp_winform_equipo_17B
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(203, 62);
+            this.txtCodigo.Location = new System.Drawing.Point(204, 40);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 0;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(203, 87);
+            this.txtNombre.Location = new System.Drawing.Point(204, 65);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(203, 111);
+            this.txtDescripcion.Location = new System.Drawing.Point(204, 89);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
             this.txtDescripcion.TabIndex = 2;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(203, 192);
+            this.txtPrecio.Location = new System.Drawing.Point(204, 170);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 5;
@@ -145,7 +149,7 @@ namespace tp_winform_equipo_17B
             // 
             this.cbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMarca.FormattingEnabled = true;
-            this.cbMarca.Location = new System.Drawing.Point(203, 136);
+            this.cbMarca.Location = new System.Drawing.Point(204, 114);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(100, 21);
             this.cbMarca.TabIndex = 3;
@@ -154,7 +158,7 @@ namespace tp_winform_equipo_17B
             // 
             this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(203, 164);
+            this.cbCategoria.Location = new System.Drawing.Point(204, 142);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(100, 21);
             this.cbCategoria.TabIndex = 4;
@@ -172,7 +176,7 @@ namespace tp_winform_equipo_17B
             // lbImagen
             // 
             this.lbImagen.AutoSize = true;
-            this.lbImagen.Location = new System.Drawing.Point(99, 226);
+            this.lbImagen.Location = new System.Drawing.Point(100, 204);
             this.lbImagen.Name = "lbImagen";
             this.lbImagen.Size = new System.Drawing.Size(74, 13);
             this.lbImagen.TabIndex = 17;
@@ -180,7 +184,7 @@ namespace tp_winform_equipo_17B
             // 
             // txtURLimagen
             // 
-            this.txtURLimagen.Location = new System.Drawing.Point(203, 222);
+            this.txtURLimagen.Location = new System.Drawing.Point(204, 200);
             this.txtURLimagen.Name = "txtURLimagen";
             this.txtURLimagen.Size = new System.Drawing.Size(100, 20);
             this.txtURLimagen.TabIndex = 6;
@@ -195,12 +199,52 @@ namespace tp_winform_equipo_17B
             this.pictureBoxAgrego.TabIndex = 19;
             this.pictureBoxAgrego.TabStop = false;
             // 
+            // txtURLimagen2
+            // 
+            this.txtURLimagen2.Location = new System.Drawing.Point(204, 227);
+            this.txtURLimagen2.Name = "txtURLimagen2";
+            this.txtURLimagen2.Size = new System.Drawing.Size(100, 20);
+            this.txtURLimagen2.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(103, 233);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "URL IMAGEN";
+            // 
+            // anterior
+            // 
+            this.anterior.Location = new System.Drawing.Point(387, 258);
+            this.anterior.Name = "anterior";
+            this.anterior.Size = new System.Drawing.Size(75, 23);
+            this.anterior.TabIndex = 22;
+            this.anterior.Text = "🡰";
+            this.anterior.UseVisualStyleBackColor = true;
+            this.anterior.Click += new System.EventHandler(this.anterior_Click);
+            // 
+            // siguiente
+            // 
+            this.siguiente.Location = new System.Drawing.Point(509, 258);
+            this.siguiente.Name = "siguiente";
+            this.siguiente.Size = new System.Drawing.Size(75, 23);
+            this.siguiente.TabIndex = 23;
+            this.siguiente.Text = "🡲";
+            this.siguiente.UseVisualStyleBackColor = true;
+            this.siguiente.Click += new System.EventHandler(this.siguiente_Click);
+            // 
             // AgregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.ClientSize = new System.Drawing.Size(635, 331);
+            this.Controls.Add(this.siguiente);
+            this.Controls.Add(this.anterior);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtURLimagen2);
             this.Controls.Add(this.pictureBoxAgrego);
             this.Controls.Add(this.txtURLimagen);
             this.Controls.Add(this.lbImagen);
@@ -249,5 +293,9 @@ namespace tp_winform_equipo_17B
         private System.Windows.Forms.Label lbImagen;
         private System.Windows.Forms.TextBox txtURLimagen;
         private System.Windows.Forms.PictureBox pictureBoxAgrego;
+        private System.Windows.Forms.TextBox txtURLimagen2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button anterior;
+        private System.Windows.Forms.Button siguiente;
     }
 }

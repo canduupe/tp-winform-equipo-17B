@@ -33,26 +33,24 @@ namespace tp_winform_equipo_17B
             this.articulo = articulo;
         }
 
-
+        private List<Imagen> imagenes = new List<Imagen>();
+        private int imagenActual = 0;
         private void AgregarArticulo_Load(object sender, EventArgs e)
         {
-           
             MarcaNegocio mar = new MarcaNegocio();
             CategoriaNegocio cat = new CategoriaNegocio();
 
             try
             {
-                
-               cbMarca.DataSource = mar.listar();
-               cbMarca.ValueMember = "MarcaID";        
-               cbMarca.DisplayMember = "Descripcion";  
+                cbMarca.DataSource = mar.listar();
+                cbMarca.ValueMember = "MarcaID";
+                cbMarca.DisplayMember = "Descripcion";
 
-               cbCategoria.DataSource = cat.listar();
-               cbCategoria.ValueMember = "IdCategoria";
-               cbCategoria.DisplayMember = "Descripcion";
+                cbCategoria.DataSource = cat.listar();
+                cbCategoria.ValueMember = "IdCategoria";
+                cbCategoria.DisplayMember = "Descripcion";
 
-                
-                if(articulo!= null)
+                if (articulo != null)
                 {
                     txtCodigo.Text = articulo.CodArticulo;
                     txtNombre.Text = articulo.NombreArticulo;
@@ -60,10 +58,16 @@ namespace tp_winform_equipo_17B
                     cbMarca.SelectedValue = articulo.Marca.MarcaID;
                     cbCategoria.SelectedValue = articulo.Categoria.IdCategoria;
                     txtPrecio.Text = articulo.PrecioArticulo.ToString();
-                    CargarImagen(articulo.Imagen.URlImagen);
-                   
-                }
 
+                    
+                    imagenes = articulo.Imagenes;
+
+                    
+                    if (imagenes.Count > 0)
+                    {
+                        CargarImagen(imagenes[imagenActual].URlImagen);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -75,14 +79,14 @@ namespace tp_winform_equipo_17B
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
-           Articulo arti = new Articulo();
+            Articulo arti = new Articulo();
 
             try
             {
                 arti.CodArticulo = txtCodigo.Text;
                 arti.NombreArticulo = txtNombre.Text;
                 arti.DescripcionArticulo = txtDescripcion.Text;
-                
+
                 arti.IdMarca = ((Marca)cbMarca.SelectedItem).MarcaID;
                 arti.IdCategoria = ((Categoria)cbCategoria.SelectedItem).IdCategoria;
 
@@ -105,18 +109,20 @@ namespace tp_winform_equipo_17B
                     return;
                 }
 
-             
+                
+                arti.Imagenes.Add(new Imagen { URlImagen = txtURLimagen.Text }); 
+                arti.Imagenes.Add(new Imagen { URlImagen = txtURLimagen2.Text }); 
+
                 negocio.agregar(arti);
                 MessageBox.Show("Artículo agregado correctamente");
                 Close();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-           
         }
+    
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -140,5 +146,22 @@ namespace tp_winform_equipo_17B
             }
         }
 
+        private void siguiente_Click(object sender, EventArgs e)
+        {
+            if (imagenes.Count > 0)
+            {
+                imagenActual = (imagenActual + 1) % imagenes.Count; 
+                CargarImagen(imagenes[imagenActual].URlImagen);
+            }
+        }
+
+        private void anterior_Click(object sender, EventArgs e)
+        {
+            if (imagenes.Count > 0)
+            {
+                imagenActual = (imagenActual - 1 + imagenes.Count) % imagenes.Count; 
+                CargarImagen(imagenes[imagenActual].URlImagen);
+            }
+        }
     }
 }

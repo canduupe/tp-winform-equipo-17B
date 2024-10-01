@@ -17,7 +17,7 @@ namespace Dominio
         {
             return URlImagen;
         }
-
+        public List<Imagen> Imagenes { get; set; } = new List<Imagen>();
 
     }
 }
