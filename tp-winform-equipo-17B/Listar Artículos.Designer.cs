@@ -48,8 +48,11 @@
             // dgNegocio
             // 
             this.dgNegocio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgNegocio.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgNegocio.Location = new System.Drawing.Point(28, 79);
+            this.dgNegocio.MultiSelect = false;
             this.dgNegocio.Name = "dgNegocio";
+            this.dgNegocio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgNegocio.Size = new System.Drawing.Size(749, 242);
             this.dgNegocio.TabIndex = 0;
             this.dgNegocio.SelectionChanged += new System.EventHandler(this.dgNegocio_SelectionChanged);
@@ -155,7 +158,6 @@
             this.btnAnterior.TabIndex = 12;
             this.btnAnterior.Text = "ANTERIOR";
             this.btnAnterior.UseVisualStyleBackColor = true;
-    
             // 
             // btnSiguiente
             // 
@@ -165,7 +167,6 @@
             this.btnSiguiente.TabIndex = 13;
             this.btnSiguiente.Text = "SIGUIENTE";
             this.btnSiguiente.UseVisualStyleBackColor = true;
-
             // 
             // ListarArtículos
             // 

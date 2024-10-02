@@ -44,10 +44,12 @@ namespace tp_winform_equipo_17B
                 cbMarca.DataSource = mar.listar();
                 cbMarca.ValueMember = "MarcaID";
                 cbMarca.DisplayMember = "Descripcion";
+                cbMarca.SelectedIndex = -1;
 
                 cbCategoria.DataSource = cat.listar();
                 cbCategoria.ValueMember = "IdCategoria";
                 cbCategoria.DisplayMember = "Descripcion";
+                cbCategoria.SelectedIndex = -1;
 
                 if (articulo != null)
                 {
@@ -58,9 +60,6 @@ namespace tp_winform_equipo_17B
                     cbCategoria.SelectedValue = articulo.Categoria.IdCategoria;
                     txtPrecio.Text = articulo.PrecioArticulo.ToString();
                     txtURLimagen.Text = articulo.Imagen.URlImagen;
-
-           
-
                   
                 }
             }
@@ -74,18 +73,37 @@ namespace tp_winform_equipo_17B
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Negocio negocio = new Negocio();
-
+          
             try
             {
                 if (articulo == null)
                     articulo = new Articulo();
 
+                
                 articulo.CodArticulo = txtCodigo.Text;
                 articulo.NombreArticulo = txtNombre.Text;
                 articulo.DescripcionArticulo = txtDescripcion.Text;
 
-                articulo.IdMarca = ((Marca)cbMarca.SelectedItem).MarcaID;
-                articulo.IdCategoria = ((Categoria)cbCategoria.SelectedItem).IdCategoria;
+                if (cbMarca.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Seleccione una marca por favor");
+                    return;
+                }
+                else
+                {
+                    articulo.IdMarca = ((Marca)cbMarca.SelectedItem).MarcaID;
+                }
+
+                if (cbCategoria.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Seleccione una categoria por favor");
+                    return;
+                }
+                else
+                {
+                    articulo.IdCategoria = ((Categoria)cbCategoria.SelectedItem).IdCategoria;
+                }
+
 
                 decimal precio;
                 if (decimal.TryParse(txtPrecio.Text, out precio))
@@ -111,9 +129,9 @@ namespace tp_winform_equipo_17B
 
                 if (articulo.Id != 0)
                 {
-                    negocio.modificar(articulo);
-                    MessageBox.Show("Artículo modificado correctamente");
-
+                   negocio.modificar(articulo);
+                   MessageBox.Show("Artículo modificado correctamente");
+                    
                 }
                 else
                 {
