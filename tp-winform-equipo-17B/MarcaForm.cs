@@ -14,7 +14,7 @@ namespace tp_winform_equipo_17B
 {
     public partial class MarcaForm : Form
     {
-
+        private string mar;
         public MarcaForm()
         {
             InitializeComponent();
@@ -92,6 +92,22 @@ namespace tp_winform_equipo_17B
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            MarcaNegocio neg = new MarcaNegocio();
+
+            if(cboMarcass != null)
+            {
+              string marca = cboMarcass.SelectedItem.ToString();
+              string NuevaMar = txtModMAr.Text;
+
+                neg.Modificar(NuevaMar,marca);
+
+                MessageBox.Show("Modificado");
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una MARCA para MODIFICAR.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
 
         }
     }

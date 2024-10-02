@@ -13,8 +13,10 @@ using Negocioo;
 
 namespace tp_winform_equipo_17B
 {
+
     public partial class CategoriasForm : Form
     {
+    private  List <Categoria> listaCategoria;
         public CategoriasForm()
         {
             InitializeComponent();
@@ -80,5 +82,34 @@ namespace tp_winform_equipo_17B
             }
 
         }
+
+        private void btnModificarMar_Click(object sender, EventArgs e)
+        {
+            CategoriaNegocio catneg = new CategoriaNegocio();
+
+            if(cboCate.SelectedItem != null)
+            {
+                string cateSelec = cboCate.SelectedItem.ToString();
+                string cateNew = txtModCat.Text;
+
+                catneg.Modificar(cateNew, cateSelec);
+
+                MessageBox.Show("Modificado");
+               
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una Categoria para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+       
+
+
+        
+
+
+
     }
 }

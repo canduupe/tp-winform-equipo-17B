@@ -16,5 +16,10 @@ namespace tp_winform_equipo_17B
         {
             InitializeComponent();
         }
+
+        private void btnAcotMod_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

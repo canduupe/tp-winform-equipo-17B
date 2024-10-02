@@ -84,6 +84,30 @@ namespace Negocioo
 
         }
 
+        public void Modificar(string marcmod, string marca2)
+        {
+            AccesoDatos datos = new AccesoDatos ();
+
+            try
+            {
+                datos.setearConsulta("update MARCAS set Descripcion = @descr where Descripcion = @descripcion ");
+                datos.setearParametro("@descr", marcmod);
+                datos.setearParametro("@descripcion", marca2);
+                datos.realizarAccion();            
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion(); 
+            }
+
+        }
+
 
 
 

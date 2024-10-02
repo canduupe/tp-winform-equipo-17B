@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,15 +82,32 @@ namespace Negocioo
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
+        }
+
+        public void Modificar(string cat1, string cat2)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("update CATEGORIAS set Descripcion = @new where Descripcion = @old");
+                datos.setearParametro("@new", cat1);
+                datos.setearParametro("@old", cat2);
+                datos.realizarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
 
 
 
         }
-
-
 
 
 

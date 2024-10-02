@@ -35,16 +35,19 @@
             this.cboCate = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtModCat = new System.Windows.Forms.TextBox();
+            this.btnModificarMar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(56, 80);
+            this.label1.Location = new System.Drawing.Point(13, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(90, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre:";
+            this.label1.Text = "Nueva Categoria:";
             // 
             // txtCatAdd
             // 
@@ -77,7 +80,7 @@
             // 
             this.cboCate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCate.FormattingEnabled = true;
-            this.cboCate.Location = new System.Drawing.Point(109, 129);
+            this.cboCate.Location = new System.Drawing.Point(109, 124);
             this.cboCate.Name = "cboCate";
             this.cboCate.Size = new System.Drawing.Size(138, 21);
             this.cboCate.TabIndex = 4;
@@ -85,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 132);
+            this.label2.Location = new System.Drawing.Point(43, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 5;
@@ -93,7 +96,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(266, 126);
+            this.button1.Location = new System.Drawing.Point(266, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -101,12 +104,41 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 168);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Cambiar Categoria:";
+            // 
+            // txtModCat
+            // 
+            this.txtModCat.Location = new System.Drawing.Point(110, 168);
+            this.txtModCat.Name = "txtModCat";
+            this.txtModCat.Size = new System.Drawing.Size(137, 20);
+            this.txtModCat.TabIndex = 8;
+            // 
+            // btnModificarMar
+            // 
+            this.btnModificarMar.Location = new System.Drawing.Point(266, 164);
+            this.btnModificarMar.Name = "btnModificarMar";
+            this.btnModificarMar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificarMar.TabIndex = 9;
+            this.btnModificarMar.Text = "Modificar";
+            this.btnModificarMar.UseVisualStyleBackColor = true;
+            this.btnModificarMar.Click += new System.EventHandler(this.btnModificarMar_Click);
+            // 
             // CategoriasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(417, 298);
+            this.Controls.Add(this.btnModificarMar);
+            this.Controls.Add(this.txtModCat);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboCate);
@@ -134,5 +166,8 @@
         private System.Windows.Forms.ComboBox cboCate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtModCat;
+        private System.Windows.Forms.Button btnModificarMar;
     }
 }

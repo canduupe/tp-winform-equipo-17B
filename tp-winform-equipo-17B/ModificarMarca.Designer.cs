@@ -58,6 +58,7 @@
             this.btnAcotMod.TabIndex = 2;
             this.btnAcotMod.Text = "Aceptar";
             this.btnAcotMod.UseVisualStyleBackColor = true;
+            this.btnAcotMod.Click += new System.EventHandler(this.btnAcotMod_Click);
             // 
             // ModificarMarca
             // 
