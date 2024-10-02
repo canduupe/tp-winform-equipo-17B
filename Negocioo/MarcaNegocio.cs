@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using Negocioo;
+
 
 namespace Negocioo
 {
@@ -41,5 +43,49 @@ namespace Negocioo
                 datos.cerrarConexion();
             }
         }
+
+        public void Agregar( Marca marca)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+
+            try
+            {
+                datos.setearConsulta(" insert into MARCAS (Descripcion) values ('" + marca.Descripcion + "')");
+                datos.realizarAccion();
+
+            }
+            catch (Exception ex)
+            {
+  
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+        }
+
+        public void Eliminar (string mar)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from MARCAS where Descripcion = @descripcion");
+                datos.setearParametro("@descripcion", mar);
+                datos.realizarAccion();
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
+
+
+        }
+
+
+
+
     }
 }

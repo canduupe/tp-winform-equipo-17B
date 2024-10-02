@@ -35,6 +35,8 @@
             this.lblFecha = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnListarArticulos = new System.Windows.Forms.Button();
             this.lbBienvenidos = new System.Windows.Forms.Label();
+            this.tsCategorias = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMarcas = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu1.SuspendLayout();
             this.statusStripFecha.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +55,9 @@
             // artículosToolStripMenuItem
             // 
             this.artículosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.agregarToolStripMenuItem});
+            this.agregarToolStripMenuItem,
+            this.tsCategorias,
+            this.tsMarcas});
             this.artículosToolStripMenuItem.Name = "artículosToolStripMenuItem";
             this.artículosToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.artículosToolStripMenuItem.Text = "Archivo";
@@ -105,6 +109,20 @@
             this.lbBienvenidos.TabIndex = 5;
             this.lbBienvenidos.Text = "ROUGH MAGNAMENT";
             // 
+            // tsCategorias
+            // 
+            this.tsCategorias.Name = "tsCategorias";
+            this.tsCategorias.Size = new System.Drawing.Size(180, 22);
+            this.tsCategorias.Text = "Categorias";
+            this.tsCategorias.Click += new System.EventHandler(this.tsCategorias_Click);
+            // 
+            // tsMarcas
+            // 
+            this.tsMarcas.Name = "tsMarcas";
+            this.tsMarcas.Size = new System.Drawing.Size(180, 22);
+            this.tsMarcas.Text = "Marcas";
+            this.tsMarcas.Click += new System.EventHandler(this.tsMarcas_Click);
+            // 
             // VentPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +158,8 @@
         private System.Windows.Forms.ToolStripStatusLabel lblFecha;
         private System.Windows.Forms.Button btnListarArticulos;
         private System.Windows.Forms.Label lbBienvenidos;
+        private System.Windows.Forms.ToolStripMenuItem tsCategorias;
+        private System.Windows.Forms.ToolStripMenuItem tsMarcas;
     }
 }
 

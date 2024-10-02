@@ -36,5 +36,17 @@ namespace tp_winform_equipo_17B
             AgregarArticulo agregar = new AgregarArticulo();
             agregar.ShowDialog();
         }
+
+        private void tsCategorias_Click(object sender, EventArgs e)
+        {
+            CategoriasForm categoriaVent  = new CategoriasForm();
+            categoriaVent.ShowDialog();
+        }
+
+        private void tsMarcas_Click(object sender, EventArgs e)
+        {
+            MarcaForm marcasForm = new MarcaForm(); 
+            marcasForm.ShowDialog();    
+        }
     }
 }

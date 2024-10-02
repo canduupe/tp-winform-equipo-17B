@@ -41,5 +41,60 @@ namespace Negocioo
                 datos.cerrarConexion();
             }
         }
+
+        public void Agregar (Categoria cat)
+        {
+            AccesoDatos datos = new AccesoDatos ();
+
+
+
+            try
+            {
+
+                datos.setearConsulta("insert into CATEGORIAS (Descripcion) values ('" + cat.Descripcion + "')"); 
+                datos.realizarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+        public void Eliminar(string cat)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("delete from CATEGORIAS where Descripcion = @descripcion");
+                datos.setearParametro("@descripcion", cat);
+                datos.realizarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
     }
 }
